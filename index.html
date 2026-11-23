@@ -46,7 +46,7 @@
 
     #welcomeScreen {
       background-image:
-        linear-gradient(rgba(255, 239, 246, .28), rgba(255, 239, 246, .5)),
+        linear-gradient(rgba(255,239,246,.28), rgba(255,239,246,.5)),
         url("assets/nen-chao-mung.png");
     }
 
@@ -54,7 +54,7 @@
     #groupScreen,
     #departmentScreen {
       background-image:
-        linear-gradient(rgba(255, 242, 247, .72), rgba(255, 242, 247, .82)),
+        linear-gradient(rgba(255,242,247,.72), rgba(255,242,247,.82)),
         url("assets/nen-thong-tin.png");
     }
 
@@ -63,10 +63,10 @@
       max-width: 620px;
       margin: auto;
       padding: 30px 24px;
-      border: 1px solid rgba(236, 87, 144, .2);
+      border: 1px solid rgba(236,87,144,.2);
       border-radius: 25px;
-      background: rgba(255, 255, 255, .91);
-      box-shadow: 0 12px 40px rgba(157, 75, 108, .13);
+      background: rgba(255,255,255,.93);
+      box-shadow: 0 12px 40px rgba(157,75,108,.13);
       backdrop-filter: blur(8px);
     }
 
@@ -90,7 +90,7 @@
 
     h1 {
       color: #c8467d;
-      font-size: clamp(27px, 6vw, 39px);
+      font-size: clamp(27px,6vw,39px);
       line-height: 1.25;
       margin-bottom: 12px;
     }
@@ -129,7 +129,7 @@
 
     input:focus {
       border-color: #e76b9c;
-      box-shadow: 0 0 0 3px rgba(231, 107, 156, .12);
+      box-shadow: 0 0 0 3px rgba(231,107,156,.12);
     }
 
     .btn {
@@ -139,7 +139,7 @@
       width: 100%;
       padding: 13px 18px;
       border-radius: 13px;
-      background: linear-gradient(135deg, #ee79a7, #d94d86);
+      background: linear-gradient(135deg,#ee79a7,#d94d86);
       color: white;
       font-weight: 700;
       transition: .2s;
@@ -147,7 +147,7 @@
 
     .btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(217, 77, 134, .2);
+      box-shadow: 0 6px 16px rgba(217,77,134,.2);
     }
 
     .btn.secondary {
@@ -303,18 +303,6 @@
       border: 1px solid #f4c4d7;
     }
 
-    .tag-team-leader {
-      color: #98600a;
-      background: #fff0c9;
-      border: 1px solid #f3d88c;
-    }
-
-    .tag-team-member {
-      color: #b34778;
-      background: #ffe8f0;
-      border: 1px solid #f4c4d7;
-    }
-
     .empty-message {
       padding: 18px;
       color: #997084;
@@ -353,7 +341,7 @@
       }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width:480px) {
       .container {
         padding: 25px 17px;
       }
@@ -382,6 +370,7 @@
       <div class="flower">🌸</div>
       <div class="eyebrow">Đội hình Xuân Nhân Ái 2027</div>
       <h1>Chào mừng chiến sĩ!</h1>
+
       <p class="subtitle">
         Một hành trình mới đang chờ chúng ta viết tiếp.
         Cùng nhau mang yêu thương đến những vùng đất mới nhé!
@@ -394,6 +383,7 @@
           placeholder="Nhập mã chiến sĩ của bạn"
           autocomplete="off"
         >
+
         <button class="btn" onclick="searchSoldier()">
           Xem thông tin chiến sĩ
         </button>
@@ -408,9 +398,11 @@
     </div>
   </section>
 
+
   <!-- TRANG THÔNG TIN CÁ NHÂN -->
   <section id="infoScreen" class="screen">
     <div class="container">
+
       <div class="section-heading">
         <div class="flower">🌷</div>
         <div class="eyebrow">Xuân Nhân Ái 2027</div>
@@ -418,14 +410,13 @@
         <p>Chào mừng bạn đến với hành trình Xuân Nhân Ái!</p>
       </div>
 
-      <div id="personalInfo" class="info-card">
-        <div class="empty-message">Đang tải thông tin...</div>
-      </div>
+      <div id="personalInfo" class="info-card"></div>
 
       <div class="btn-row">
         <button class="btn" onclick="showGroupScreen()">
           Nhóm gây quỹ
         </button>
+
         <button class="btn" onclick="showDepartmentScreen()">
           Ban hoạt động
         </button>
@@ -441,18 +432,22 @@
     </div>
   </section>
 
+
   <!-- TRANG DANH SÁCH NHÓM GÂY QUỸ -->
   <section id="groupScreen" class="screen">
     <div class="container">
+
       <div class="section-heading">
         <div class="flower">💗</div>
         <div class="eyebrow">Xuân Nhân Ái 2027</div>
         <h2>Nhóm gây quỹ</h2>
-        <p id="groupSubtitle">Danh sách thành viên nhóm của bạn</p>
+        <p id="groupSubtitle">
+          Các chiến sĩ đồng hành cùng bạn trong nhóm gây quỹ
+        </p>
       </div>
 
       <div class="list-wrapper">
-        <div class="list-title" id="groupTitle">Nhóm gây quỹ</div>
+        <div class="list-title" id="groupTitle"></div>
         <div id="groupMembers" class="member-list"></div>
       </div>
 
@@ -462,18 +457,22 @@
     </div>
   </section>
 
+
   <!-- TRANG DANH SÁCH BAN HOẠT ĐỘNG -->
   <section id="departmentScreen" class="screen">
     <div class="container">
+
       <div class="section-heading">
         <div class="flower">🌼</div>
         <div class="eyebrow">Xuân Nhân Ái 2027</div>
         <h2>Ban hoạt động</h2>
-        <p id="departmentSubtitle">Danh sách thành viên ban của bạn</p>
+        <p id="departmentSubtitle">
+          Các chiến sĩ cùng hoạt động trong ban của bạn
+        </p>
       </div>
 
       <div class="list-wrapper">
-        <div class="list-title" id="departmentTitle">Ban hoạt động</div>
+        <div class="list-title" id="departmentTitle"></div>
         <div id="departmentMembers" class="member-list"></div>
       </div>
 
@@ -482,6 +481,7 @@
       </button>
     </div>
   </section>
+
 
   <script>
     let soldiers = [];
@@ -503,34 +503,48 @@
 
     function goBack() {
       currentSoldier = null;
+
       const url = new URL(window.location.href);
       url.searchParams.delete("id");
       window.history.replaceState({}, "", url);
+
       document.getElementById("soldierCodeInput").value = "";
       document.getElementById("welcomeError").textContent = "";
+
       showScreen("welcomeScreen");
     }
 
-    // LẤY CHỨC VỤ NHÓM GÂY QUỸ
+
+    // CHỨC VỤ NHÓM GÂY QUỸ
     function getFundraisingPosition(soldier) {
-      return soldier.fundraising_position || "Thành viên nhóm gây quỹ";
+      return soldier.fundraising_position ||
+        "Thành viên nhóm gây quỹ";
     }
 
-    // LẤY CHỨC VỤ BAN HOẠT ĐỘNG
+
+    // CHỨC VỤ BAN HOẠT ĐỘNG
     function getDepartmentPosition(soldier) {
-      return soldier.department_position || "Thành viên ban";
+      return soldier.department_position ||
+        "Thành viên ban";
     }
+
 
     // TẠO NHÃN CHỨC VỤ
-    function createTag(text, type) {
+    function createTag(text, isLeader) {
       const tag = document.createElement("span");
-      tag.className = "member-tag " + type;
+
+      tag.className = isLeader
+        ? "member-tag tag-leader"
+        : "member-tag tag-member";
+
       tag.textContent = text;
+
       return tag;
     }
 
-    // TẠO THÔNG TIN MỘT THÀNH VIÊN
-    function createMemberElement(soldier, tagText, tagType) {
+
+    // TẠO THẺ THÀNH VIÊN
+    function createMemberElement(soldier, tagText, isLeader) {
       const item = document.createElement("div");
       item.className = "member-item";
 
@@ -551,7 +565,7 @@
       identity.appendChild(code);
 
       top.appendChild(identity);
-      top.appendChild(createTag(tagText, tagType));
+      top.appendChild(createTag(tagText, isLeader));
 
       const role = document.createElement("div");
       role.className = "member-role";
@@ -563,7 +577,8 @@
       return item;
     }
 
-    // HIỂN THỊ THÔNG TIN CÁ NHÂN
+
+    // THÔNG TIN CÁ NHÂN
     function renderPersonalInfo(soldier) {
       const container = document.getElementById("personalInfo");
       container.innerHTML = "";
@@ -598,10 +613,12 @@
 
       line.appendChild(labelElement);
       line.appendChild(valueElement);
+
       container.appendChild(line);
     }
 
-    // TÌM CHIẾN SĨ THEO MÃ
+
+    // TRA CỨU CHIẾN SĨ
     function searchSoldier() {
       const input = document.getElementById("soldierCodeInput");
       const code = input.value.trim().toUpperCase();
@@ -616,35 +633,38 @@
         return;
       }
 
+      document.getElementById("welcomeError").textContent = "";
       openSoldier(soldier);
     }
 
-    // MỞ THÔNG TIN CHIẾN SĨ
+
+    // MỞ TRANG CÁ NHÂN
     function openSoldier(soldier) {
       currentSoldier = soldier;
+
       renderPersonalInfo(soldier);
 
       const url = new URL(window.location.href);
       url.searchParams.set("id", soldier.id);
+
       window.history.replaceState({}, "", url);
 
       showScreen("infoScreen");
     }
+
 
     // DANH SÁCH NHÓM GÂY QUỸ
     function showGroupScreen() {
       if (!currentSoldier) return;
 
       const groupName = currentSoldier.fundraising;
+
       const members = soldiers.filter(item =>
         item.fundraising === groupName
       );
 
       document.getElementById("groupTitle").textContent =
         "Nhóm " + groupName;
-
-      document.getElementById("groupSubtitle").textContent =
-        "Các chiến sĩ đồng hành cùng bạn trong nhóm gây quỹ";
 
       const list = document.getElementById("groupMembers");
       list.innerHTML = "";
@@ -654,19 +674,16 @@
           '<div class="empty-message">Chưa có thành viên trong nhóm này.</div>';
       } else {
         members.forEach(member => {
-          const isLeader =
-            getFundraisingPosition(member) === "Trưởng nhóm gây quỹ";
+          const position = getFundraisingPosition(member);
 
-          const tagText = isLeader
-            ? "Trưởng nhóm gây quỹ"
-            : "Thành viên nhóm gây quỹ";
-
-          const tagType = isLeader
-            ? "tag-team-leader"
-            : "tag-team-member";
+          const isLeader = position === "Trưởng nhóm gây quỹ";
 
           list.appendChild(
-            createMemberElement(member, tagText, tagType)
+            createMemberElement(
+              member,
+              position,
+              isLeader
+            )
           );
         });
       }
@@ -674,20 +691,19 @@
       showScreen("groupScreen");
     }
 
+
     // DANH SÁCH BAN HOẠT ĐỘNG
     function showDepartmentScreen() {
       if (!currentSoldier) return;
 
       const departmentName = currentSoldier.department;
+
       const members = soldiers.filter(item =>
         item.department === departmentName
       );
 
       document.getElementById("departmentTitle").textContent =
         "Ban " + departmentName;
-
-      document.getElementById("departmentSubtitle").textContent =
-        "Các chiến sĩ cùng hoạt động trong ban của bạn";
 
       const list = document.getElementById("departmentMembers");
       list.innerHTML = "";
@@ -697,19 +713,20 @@
           '<div class="empty-message">Chưa có thành viên trong ban này.</div>';
       } else {
         members.forEach(member => {
+          const position = getDepartmentPosition(member);
+
+          // Đội trưởng được giữ đúng nhãn Đội trưởng.
+          // Trưởng ban và thành viên ban có nhãn riêng.
           const isLeader =
-            getDepartmentPosition(member) === "Trưởng ban";
-
-          const tagText = isLeader
-            ? "Trưởng ban"
-            : "Thành viên ban";
-
-          const tagType = isLeader
-            ? "tag-leader"
-            : "tag-member";
+            position === "Trưởng ban" ||
+            position === "Đội trưởng";
 
           list.appendChild(
-            createMemberElement(member, tagText, tagType)
+            createMemberElement(
+              member,
+              position,
+              isLeader
+            )
           );
         });
       }
@@ -717,7 +734,8 @@
       showScreen("departmentScreen");
     }
 
-    // TỰ ĐỘNG MỞ TRANG CÁ NHÂN TỪ LINK QR
+
+    // TỰ ĐỘNG MỞ TRANG TỪ LINK CÁ NHÂN
     function loadPersonalLink() {
       const params = new URLSearchParams(window.location.search);
       const id = params.get("id");
@@ -732,36 +750,43 @@
         openSoldier(soldier);
       } else {
         showScreen("welcomeScreen");
+
         document.getElementById("welcomeError").textContent =
           "Mã chiến sĩ trong đường dẫn không tồn tại.";
       }
     }
 
-    // TẢI DỮ LIỆU
+
+    // TẢI DỮ LIỆU JSON
     async function initWebsite() {
       try {
-        const response = await fetch("data.json");
+        const response = await fetch(
+          "./data.json?v=" + Date.now(),
+          { cache: "no-store" }
+        );
 
         if (!response.ok) {
-          throw new Error("Không thể tải dữ liệu.");
+          throw new Error("Không thể tải data.json");
         }
 
         const data = await response.json();
 
-        if (!Array.isArray(data.soldiers)) {
-          throw new Error("Cấu trúc dữ liệu không hợp lệ.");
+        if (!data || !Array.isArray(data.soldiers)) {
+          throw new Error("Cấu trúc dữ liệu không hợp lệ");
         }
 
         soldiers = data.soldiers;
+
         loadPersonalLink();
 
       } catch (error) {
-        console.error(error);
+        console.error("Lỗi tải dữ liệu:", error);
 
         document.getElementById("welcomeError").textContent =
-          "Chưa tải được dữ liệu chiến sĩ. Bạn vui lòng thử tải lại trang.";
+          "Chưa tải được dữ liệu chiến sĩ. Vui lòng tải lại trang hoặc kiểm tra data.json.";
       }
     }
+
 
     // NHẤN ENTER ĐỂ TRA CỨU
     document.getElementById("soldierCodeInput")
@@ -771,14 +796,17 @@
         }
       });
 
-    // HIỆU ỨNG HOA MAI RƠI
+
+    // HIỆU ỨNG HOA RƠI
     function createPetal() {
       const petal = document.createElement("div");
+
       petal.className = "petal";
       petal.textContent = Math.random() > 0.5 ? "🌸" : "✿";
 
       petal.style.left = Math.random() * 100 + "vw";
-      petal.style.fontSize = (12 + Math.random() * 12) + "px";
+      petal.style.fontSize =
+        (12 + Math.random() * 12) + "px";
 
       const duration = 7 + Math.random() * 8;
       petal.style.animationDuration = duration + "s";
@@ -792,8 +820,10 @@
 
     setInterval(createPetal, 700);
 
+
     // KHỞI CHẠY WEBSITE
     initWebsite();
+
   </script>
 </body>
 </html>
