@@ -1,3 +1,4 @@
+
 {
   "soldiers": [
     {
@@ -16,7 +17,7 @@
       "department": "Dạy học",
       "fundraising": "Vượt KPI",
       "fundraising_position": "Thành viên nhóm gây quỹ",
-      "department_position": "Phụ trách Dạy học"
+      "department_position": "Trưởng ban"
     },
     {
       "id": "XNA003",
@@ -25,7 +26,7 @@
       "department": "Hậu cần",
       "fundraising": "Vượt KPI",
       "fundraising_position": "Thành viên nhóm gây quỹ",
-      "department_position": "Trưởng ban Hậu cần"
+      "department_position": "Trưởng ban"
     },
     {
       "id": "XNA004",
@@ -34,7 +35,7 @@
       "department": "Văn nghệ",
       "fundraising": "Vượt KPI",
       "fundraising_position": "Thành viên nhóm gây quỹ",
-      "department_position": "Phụ trách Văn nghệ"
+      "department_position": "Trưởng ban"
     },
     {
       "id": "XNA005",
@@ -43,7 +44,7 @@
       "department": "Truyền thông",
       "fundraising": "Vượt KPI",
       "fundraising_position": "Thành viên nhóm gây quỹ",
-      "department_position": "Trưởng ban Truyền thông"
+      "department_position": "Trưởng ban"
     }
   ]
 }
