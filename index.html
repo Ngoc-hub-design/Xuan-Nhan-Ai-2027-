@@ -192,8 +192,6 @@
       border-color:#d88b9d;
     }
 
-    /* TRANG DANH SÁCH THÀNH VIÊN RIÊNG */
-
     .members-panel {
       width:min(620px,90vw);
       max-height:85svh;
@@ -201,7 +199,7 @@
       padding:clamp(22px,4vw,42px);
       border:1px solid #d88b9d;
       border-radius:22px;
-      background:#fff4e9eF;
+      background:#fff4e9ef;
       box-shadow:0 8px 30px #8b294b33;
       text-align:center;
       font-family:Arial,sans-serif;
@@ -272,6 +270,18 @@
       background:#fff7e8;
       color:#8d1d3e;
       line-height:1.6;
+      text-align:center;
+    }
+
+    .retry-btn {
+      margin-top:12px;
+      padding:9px 20px;
+      border:1px solid #d88b9d;
+      border-radius:999px;
+      background:#fff0d7;
+      color:#9c3158;
+      font-weight:700;
+      cursor:pointer;
     }
 
     .petal {
@@ -368,22 +378,22 @@
     <section class="screen welcome" id="welcome">
       <div class="welcome-content">
         <p class="eyebrow">
-        Chiến dịch Xuân Tình Nguyện 2027
+          Chiến dịch Xuân Tình Nguyện 2027
         </p>
 
-        <h1>Chào mừng<br>Chiến sĩ Đội hình Xuân Nhân Ái </h1>
+        <h1>Chào mừng<br>Chiến sĩ Đội hình Xuân Nhân Ái</h1>
 
         <p>
           Lời đầu tiên, BCH cảm ơn bạn vì đã chọn ở lại và đồng hành
-          cùng chúng mình trong mùa xuân lần này🌸<br> Cùng mở lời chào và khám phá vị trí của bạn trong đội hình nhé!
+          cùng chúng mình trong mùa xuân lần này🌸<br>
+          Cùng mở lời chào và khám phá vị trí của bạn trong đội hình nhé!
         </p>
 
-        <button class="btn" id="openInfo">
+        <button class="btn" id="openInfo" type="button">
           Điều hấp dẫn đang chờ đợi?
         </button>
       </div>
     </section>
-
 
     <!-- TRANG 2: THÔNG TIN CÁ NHÂN -->
 
@@ -398,8 +408,6 @@
           <div class="field-label">Mã chiến sĩ</div>
           <div class="field-value" id="soldierId"></div>
         </div>
-
-        <!-- BỔ SUNG: VAI TRÒ ĐỘI HÌNH -->
 
         <div class="field">
           <div class="field-label">Vai trò</div>
@@ -419,22 +427,21 @@
         </div>
 
         <div class="info-actions">
-          <button class="btn member-more" id="openGroup">
+          <button class="btn member-more" id="openGroup" type="button">
             Xem nhóm gây quỹ
           </button>
 
-          <button class="btn member-more" id="openDepartment">
+          <button class="btn member-more" id="openDepartment" type="button">
             Xem ban hoạt động
           </button>
 
-          <button class="btn back" id="back">
+          <button class="btn back" id="back" type="button">
             Quay lại lời chào
           </button>
         </div>
 
       </div>
     </section>
-
 
     <!-- TRANG 3: DANH SÁCH NHÓM GÂY QUỸ -->
 
@@ -451,13 +458,12 @@
 
         <div class="members-list" id="groupMembers"></div>
 
-        <button class="btn back" id="backFromGroup">
+        <button class="btn back" id="backFromGroup" type="button">
           Quay lại thông tin chiến sĩ
         </button>
 
       </div>
     </section>
-
 
     <!-- TRANG 4: DANH SÁCH BAN HOẠT ĐỘNG -->
 
@@ -474,7 +480,7 @@
 
         <div class="members-list" id="departmentMembers"></div>
 
-        <button class="btn back" id="backFromDepartment">
+        <button class="btn back" id="backFromDepartment" type="button">
           Quay lại thông tin chiến sĩ
         </button>
 
@@ -483,8 +489,9 @@
 
   </main>
 
-
   <script>
+    "use strict";
+
     const params = new URLSearchParams(window.location.search);
     const soldierId = params.get("id");
 
@@ -496,7 +503,7 @@
     let soldiers = [];
     let currentSoldier = null;
     let dataLoaded = false;
-
+    let loadingPromise = null;
 
     // LẤY NHÓM GÂY QUỸ
 
@@ -507,7 +514,6 @@
         "Chưa chốt";
     }
 
-
     // LẤY BAN HOẠT ĐỘNG
 
     function getDepartment(soldier) {
@@ -516,21 +522,17 @@
         "Chưa cập nhật";
     }
 
-
     // LẤY VAI TRÒ ĐỘI HÌNH
 
     function getSoldierRole(soldier) {
       return soldier.role || "Chưa cập nhật";
     }
 
-
     // LẤY CHỨC VỤ TRONG BAN
 
     function getDepartmentPosition(soldier) {
-      return soldier.department_position ||
-        "Thành viên ban";
+      return soldier.department_position || "Thành viên ban";
     }
-
 
     // CHUYỂN TRANG
 
@@ -549,8 +551,7 @@
       window.scrollTo({ top:0, behavior:"smooth" });
     }
 
-
-    // HIỂN THỊ LỖI
+    // HIỂN THỊ LỖI VÀ NÚT THỬ LẠI
 
     function showError(message) {
       const panel = document.getElementById("infoPanel");
@@ -558,11 +559,112 @@
 
       const error = document.createElement("div");
       error.className = "error";
-      error.textContent = message;
 
+      const text = document.createElement("p");
+      text.textContent = message;
+
+      const retry = document.createElement("button");
+      retry.className = "retry-btn";
+      retry.type = "button";
+      retry.textContent = "Thử tải lại dữ liệu";
+
+      retry.addEventListener("click", async () => {
+        retry.disabled = true;
+        retry.textContent = "Đang tải lại...";
+
+        dataLoaded = false;
+        currentSoldier = null;
+        loadingPromise = null;
+
+        await loadSoldier();
+      });
+
+      error.appendChild(text);
+      error.appendChild(retry);
       panel.appendChild(error);
     }
 
+    // KHÔI PHỤC GIAO DIỆN THÔNG TIN
+
+    function restoreInfoPanel() {
+      const panel = document.getElementById("infoPanel");
+
+      if (document.getElementById("soldierName")) return;
+
+      panel.replaceChildren();
+
+      const kicker = document.createElement("p");
+      kicker.className = "info-kicker";
+      kicker.textContent = "Thông tin chiến sĩ";
+
+      const name = document.createElement("h2");
+      name.id = "soldierName";
+      name.textContent = "Đang tải...";
+
+      const fields = [
+        ["Mã chiến sĩ", "soldierId"],
+        ["Vai trò", "soldierRole"],
+        ["Ban hoạt động", "soldierDepartment"]
+      ];
+
+      panel.appendChild(kicker);
+      panel.appendChild(name);
+
+      fields.forEach(([label, id]) => {
+        const field = document.createElement("div");
+        field.className = "field";
+
+        const fieldLabel = document.createElement("div");
+        fieldLabel.className = "field-label";
+        fieldLabel.textContent = label;
+
+        const value = document.createElement("div");
+        value.className = "field-value";
+        value.id = id;
+
+        field.appendChild(fieldLabel);
+        field.appendChild(value);
+        panel.appendChild(field);
+      });
+
+      const groupField = document.createElement("div");
+      groupField.className = "field";
+
+      const groupLabel = document.createElement("div");
+      groupLabel.className = "field-label";
+      groupLabel.textContent = "Nhóm gây quỹ";
+
+      const groupValue = document.createElement("div");
+      groupValue.className = "field-value";
+
+      const groupPill = document.createElement("span");
+      groupPill.className = "group-pill";
+      groupPill.id = "soldierGroup";
+
+      groupValue.appendChild(groupPill);
+      groupField.appendChild(groupLabel);
+      groupField.appendChild(groupValue);
+      panel.appendChild(groupField);
+
+      const actions = document.createElement("div");
+      actions.className = "info-actions";
+
+      [
+        ["Xem nhóm gây quỹ", "openGroup", openGroup],
+        ["Xem ban hoạt động", "openDepartment", openDepartment],
+        ["Quay lại lời chào", "back", () => showScreen("welcome")]
+      ].forEach(([label, id, handler]) => {
+        const button = document.createElement("button");
+        button.className = "btn " + (id === "back" ? "back" : "member-more");
+        button.id = id;
+        button.type = "button";
+        button.textContent = label;
+        button.addEventListener("click", handler);
+        actions.appendChild(button);
+      });
+
+      panel.appendChild(actions);
+    }
 
     // TẢI DỮ LIỆU CHIẾN SĨ
 
@@ -571,47 +673,77 @@
         return true;
       }
 
+      if (loadingPromise) {
+        return loadingPromise;
+      }
+
       if (!soldierId) {
-        showError("Link này chưa có mã chiến sĩ. Vui lòng sử dụng link cá nhân được Ban Chỉ huy gửi nhé.");
-        return false;
-      }
-
-      try {
-        const response = await fetch("./data.json?v=" + Date.now(), {
-          cache:"no-store"
-        });
-
-        if (!response.ok) {
-          throw new Error("Không tải được data.json");
-        }
-
-        const data = await response.json();
-
-        soldiers = Array.isArray(data)
-          ? data
-          : (Array.isArray(data.soldiers) ? data.soldiers : []);
-
-        currentSoldier = soldiers.find(
-          person => String(person.id).toUpperCase() === soldierId.toUpperCase()
+        showError(
+          "Link này chưa có mã chiến sĩ. Vui lòng sử dụng link cá nhân được Ban Chỉ huy gửi nhé."
         );
-
-        if (!currentSoldier) {
-          showError("Chưa tìm thấy thông tin chiến sĩ. Vui lòng kiểm tra lại mã cá nhân hoặc liên hệ Ban Chỉ huy nhé.");
-          return false;
-        }
-
-        dataLoaded = true;
-        renderPersonalInfo();
-
-        return true;
-
-      } catch (error) {
-        console.error(error);
-        showError("Chưa tải được dữ liệu chiến sĩ. Vui lòng thử tải lại trang sau ít phút nhé.");
         return false;
       }
-    }
 
+      loadingPromise = (async () => {
+        try {
+          restoreInfoPanel();
+
+          const response = await fetch(
+            "./data.json?v=" + Date.now(),
+            { cache:"no-store" }
+          );
+
+          if (!response.ok) {
+            throw new Error("Không tải được data.json. Mã lỗi: " + response.status);
+          }
+
+          const data = await response.json();
+
+          soldiers = Array.isArray(data)
+            ? data
+            : (Array.isArray(data.soldiers) ? data.soldiers : []);
+
+          if (!soldiers.length) {
+            throw new Error("File data.json chưa có danh sách chiến sĩ hợp lệ.");
+          }
+
+          currentSoldier = soldiers.find(person =>
+            String(person.id || "").trim().toUpperCase() ===
+            String(soldierId).trim().toUpperCase()
+          );
+
+          if (!currentSoldier) {
+            showError(
+              "Chưa tìm thấy thông tin chiến sĩ với mã " +
+              soldierId +
+              ". Vui lòng kiểm tra lại mã cá nhân nhé."
+            );
+            return false;
+          }
+
+          dataLoaded = true;
+          renderPersonalInfo();
+
+          return true;
+
+        } catch (error) {
+          console.error("Lỗi tải dữ liệu:", error);
+
+          showError(
+            "Chưa tải được dữ liệu chiến sĩ. " +
+            (error.message || "Vui lòng kiểm tra file data.json.") +
+            " Bạn có thể thử tải lại nhé."
+          );
+
+          return false;
+
+        } finally {
+          loadingPromise = null;
+        }
+      })();
+
+      return loadingPromise;
+    }
 
     // HIỂN THỊ THÔNG TIN CÁ NHÂN
 
@@ -631,7 +763,6 @@
       document.getElementById("soldierGroup").textContent =
         getGroup(currentSoldier);
     }
-
 
     // TẠO DÒNG THÀNH VIÊN
 
@@ -657,7 +788,6 @@
 
       return item;
     }
-
 
     // HIỂN THỊ DANH SÁCH NHÓM GÂY QUỸ
 
@@ -685,12 +815,9 @@
         const position = person.fundraising_position ||
           "Thành viên nhóm gây quỹ";
 
-        container.appendChild(
-          createMemberElement(person, position)
-        );
+        container.appendChild(createMemberElement(person, position));
       });
     }
-
 
     // HIỂN THỊ DANH SÁCH BAN HOẠT ĐỘNG
 
@@ -717,44 +844,38 @@
 
       departmentMembers.forEach(person => {
         const position = getDepartmentPosition(person);
-
-        container.appendChild(
-          createMemberElement(person, position)
-        );
+        container.appendChild(createMemberElement(person, position));
       });
     }
 
+    // CÁC HÀM MỞ TRANG
+
+    function openGroup() {
+      if (!currentSoldier) return;
+      renderGroupMembers();
+      showScreen(groupScreen);
+    }
+
+    function openDepartment() {
+      if (!currentSoldier) return;
+      renderDepartmentMembers();
+      showScreen(departmentScreen);
+    }
 
     // NÚT MỞ THÔNG TIN CÁ NHÂN
 
     document.getElementById("openInfo").addEventListener("click", async () => {
-      const loaded = await loadSoldier();
-
-      if (loaded) {
-        showScreen(info);
-      }
+      showScreen(info);
+      await loadSoldier();
     });
-
 
     // NÚT XEM NHÓM GÂY QUỸ
 
-    document.getElementById("openGroup").addEventListener("click", () => {
-      if (!currentSoldier) return;
-
-      renderGroupMembers();
-      showScreen(groupScreen);
-    });
-
+    document.getElementById("openGroup").addEventListener("click", openGroup);
 
     // NÚT XEM BAN HOẠT ĐỘNG
 
-    document.getElementById("openDepartment").addEventListener("click", () => {
-      if (!currentSoldier) return;
-
-      renderDepartmentMembers();
-      showScreen(departmentScreen);
-    });
-
+    document.getElementById("openDepartment").addEventListener("click", openDepartment);
 
     // QUAY LẠI TỪ TRANG NHÓM GÂY QUỸ
 
@@ -762,20 +883,17 @@
       showScreen(info);
     });
 
-
     // QUAY LẠI TỪ TRANG BAN HOẠT ĐỘNG
 
     document.getElementById("backFromDepartment").addEventListener("click", () => {
       showScreen(info);
     });
 
-
     // QUAY LẠI LỜI CHÀO
 
     document.getElementById("back").addEventListener("click", () => {
       showScreen("welcome");
     });
-
 
     // CÁNH HOA RƠI NHẸ
 
@@ -785,10 +903,8 @@
       petal.className = "petal";
       petal.textContent = Math.random() > .5 ? "✿" : "❀";
       petal.style.left = Math.random() * 100 + "vw";
-      petal.style.fontSize =
-        (12 + Math.random() * 13) + "px";
-      petal.style.animationDuration =
-        (7 + Math.random() * 6) + "s";
+      petal.style.fontSize = (12 + Math.random() * 13) + "px";
+      petal.style.animationDuration = (7 + Math.random() * 6) + "s";
 
       document.body.appendChild(petal);
 
