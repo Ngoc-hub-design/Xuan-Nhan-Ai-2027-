@@ -400,6 +400,13 @@
           <div class="field-value" id="soldierId"></div>
         </div>
 
+        <!-- BỔ SUNG: VAI TRÒ ĐỘI HÌNH -->
+
+        <div class="field">
+          <div class="field-label">Vai trò</div>
+          <div class="field-value" id="soldierRole"></div>
+        </div>
+
         <div class="field">
           <div class="field-label">Ban hoạt động</div>
           <div class="field-value" id="soldierDepartment"></div>
@@ -511,6 +518,13 @@
     }
 
 
+    // LẤY VAI TRÒ ĐỘI HÌNH
+
+    function getSoldierRole(soldier) {
+      return soldier.role || "Chưa cập nhật";
+    }
+
+
     // LẤY CHỨC VỤ TRONG BAN
 
     function getDepartmentPosition(soldier) {
@@ -608,6 +622,9 @@
 
       document.getElementById("soldierId").textContent =
         currentSoldier.id || "Chưa cập nhật";
+
+      document.getElementById("soldierRole").textContent =
+        getSoldierRole(currentSoldier);
 
       document.getElementById("soldierDepartment").textContent =
         getDepartment(currentSoldier);
