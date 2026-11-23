@@ -160,6 +160,17 @@
       overflow-wrap:anywhere;
     }
 
+    .group-pill {
+      display:inline-block;
+      margin-top:4px;
+      padding:8px 18px;
+      border:1px solid #d88b9d;
+      border-radius:999px;
+      background:#fff4dfaa;
+      font-size:clamp(18px,2vw,25px);
+      font-weight:800;
+    }
+
     .info-actions {
       width:100%;
       display:flex;
@@ -252,6 +263,7 @@
       margin-top:4px;
     }
 
+    .empty-message,
     .error {
       font-family:Arial,sans-serif;
       padding:18px;
@@ -330,6 +342,10 @@
         font-size:18px;
       }
 
+      .group-pill {
+        font-size:18px;
+      }
+
       .btn {
         padding:10px 18px;
         font-size:14px;
@@ -384,17 +400,22 @@
         </div>
 
         <div class="field">
+          <div class="field-label">Chức vụ đội hình</div>
+          <div class="field-value" id="soldierRole"></div>
+        </div>
+
+        <div class="field">
           <div class="field-label">Ban hoạt động</div>
           <div class="field-value" id="soldierDepartment"></div>
         </div>
 
-          <div class="field">
+        <div class="field">
           <div class="field-label">Nhóm gây quỹ</div>
           <div class="field-value">
             <span class="group-pill" id="soldierGroup"></span>
           </div>
         </div>
-        
+
         <div class="info-actions">
           <button class="btn member-more" id="openGroup">
             Xem nhóm gây quỹ
@@ -426,9 +447,7 @@
 
         <div class="members-group" id="groupTitle"></div>
 
-        <div class="members-list" id="groupMembers">
-          Đang tải danh sách...
-        </div>
+        <div class="members-list" id="groupMembers"></div>
 
         <button class="btn back" id="backFromGroup">
           Quay lại thông tin chiến sĩ
@@ -446,14 +465,12 @@
         <h2>Ban hoạt động</h2>
 
         <p class="members-subtitle">
-          Những chiến sĩ đồng hành cùng Ban của bạn.
+          Những chiến sĩ đồng hành cùng ban hoạt động của bạn.
         </p>
 
         <div class="members-group" id="departmentTitle"></div>
 
-        <div class="members-list" id="departmentMembers">
-          Đang tải danh sách...
-        </div>
+        <div class="members-list" id="departmentMembers"></div>
 
         <button class="btn back" id="backFromDepartment">
           Quay lại thông tin chiến sĩ
@@ -580,7 +597,6 @@
 
 
     // HIỂN THỊ THÔNG TIN CÁ NHÂN
-    // Không hiển thị nhóm gây quỹ ở trang này
 
     function renderPersonalInfo() {
       document.getElementById("soldierName").textContent =
@@ -594,6 +610,9 @@
 
       document.getElementById("soldierDepartment").textContent =
         getDepartment(currentSoldier);
+
+      document.getElementById("soldierGroup").textContent =
+        getGroup(currentSoldier);
     }
 
 
@@ -638,7 +657,10 @@
       );
 
       if (groupMembers.length === 0) {
-        container.textContent = "Danh sách thành viên đang được cập nhật.";
+        const message = document.createElement("div");
+        message.className = "empty-message";
+        message.textContent = "Danh sách thành viên đang được cập nhật.";
+        container.appendChild(message);
         return;
       }
 
@@ -669,7 +691,10 @@
       );
 
       if (departmentMembers.length === 0) {
-        container.textContent = "Danh sách thành viên đang được cập nhật.";
+        const message = document.createElement("div");
+        message.className = "empty-message";
+        message.textContent = "Danh sách thành viên đang được cập nhật.";
+        container.appendChild(message);
         return;
       }
 
