@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="vi">
 <head>
@@ -5,152 +6,679 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ec5790">
   <title>Chào mừng chiến sĩ Xuân Nhân Ái</title>
+
   <style>
-    :root { --pink:#e94f8b; --deep:#a51e36; --gold:#ffe6a0; --ink:#6d1830; }
-    * { box-sizing: border-box; }
-    html, body { margin:0; min-height:100%; font-family: Georgia, "Times New Roman", serif; }
-    body { min-height:100vh; overflow-x:hidden; background:#f7b6ca; color:var(--ink); }
-    .screen {
-      min-height:100svh; width:100%; position:relative; display:flex;
-      align-items:center; justify-content:center; padding:clamp(18px,4vw,56px);
-      background-position:center; background-size:cover; background-repeat:no-repeat;
+    :root {
+      --pink:#e94f8b;
+      --deep:#a51e36;
+      --gold:#ffe6a0;
+      --ink:#6d1830;
     }
-    .welcome { background-image:url("assets/nen-chao-mung.png"); }
+
+    * { box-sizing:border-box; }
+
+    html, body {
+      margin:0;
+      min-height:100%;
+      font-family:Georgia, "Times New Roman", serif;
+    }
+
+    body {
+      min-height:100vh;
+      overflow-x:hidden;
+      background:#f7b6ca;
+      color:var(--ink);
+    }
+
+    .screen {
+      min-height:100svh;
+      width:100%;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:clamp(18px,4vw,56px);
+      background-position:center;
+      background-size:cover;
+      background-repeat:no-repeat;
+    }
+
+    .welcome {
+      background-image:url("assets/nen-chao-mung.png");
+    }
+
     .welcome-content {
-      width:min(66vw, 850px); min-width:min(86vw, 320px);
-      margin-top:-4vh; text-align:center; color:#fff8e8;
+      width:min(66vw,850px);
+      min-width:min(86vw,320px);
+      margin-top:-4vh;
+      text-align:center;
+      color:#fff8e8;
       text-shadow:0 2px 8px rgba(117,20,58,.35);
     }
-    .eyebrow { font-size:clamp(13px,1.5vw,22px); letter-spacing:.18em; text-transform:uppercase; margin:0 0 12px; }
-    h1 { font-size:clamp(30px,5.2vw,72px); line-height:1.08; margin:0 auto 14px; color:#fff0c3; }
-    .welcome-content p { font-family:Arial,sans-serif; font-size:clamp(14px,1.5vw,21px); line-height:1.5; margin:0 auto 25px; max-width:650px; }
+
+    .eyebrow {
+      font-size:clamp(13px,1.5vw,22px);
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin:0 0 12px;
+    }
+
+    h1 {
+      font-size:clamp(30px,5.2vw,72px);
+      line-height:1.08;
+      margin:0 auto 14px;
+      color:#fff0c3;
+    }
+
+    .welcome-content p {
+      font-family:Arial,sans-serif;
+      font-size:clamp(14px,1.5vw,21px);
+      line-height:1.5;
+      margin:0 auto 25px;
+      max-width:650px;
+    }
+
     .btn {
-      border:2px solid #ffe8a8; border-radius:999px; padding:13px 28px;
-      color:#fff6d9; background:linear-gradient(135deg,#c72e3f,#e85b87);
-      font-size:16px; font-weight:700; cursor:pointer; box-shadow:0 5px 18px #8b294b55;
-      transition:transform .2s, filter .2s;
+      border:2px solid #ffe8a8;
+      border-radius:999px;
+      padding:13px 28px;
+      color:#fff6d9;
+      background:linear-gradient(135deg,#c72e3f,#e85b87);
+      font-size:16px;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:0 5px 18px #8b294b55;
+      transition:transform .2s,filter .2s;
     }
-    .btn:hover { transform:translateY(-2px); filter:brightness(1.06); }
-    .info { display:none; background-image:url("assets/nen-thong-tin.png"); }
-    .info.show { display:flex; }
-    .welcome.hide { display:none; }
+
+    .btn:hover {
+      transform:translateY(-2px);
+      filter:brightness(1.06);
+    }
+
+    .info, .members {
+      display:none;
+      background-image:url("assets/nen-thong-tin.png");
+    }
+
+    .info.show, .members.show {
+      display:flex;
+    }
+
+    .welcome.hide {
+      display:none;
+    }
+
     .info-panel {
-      width:min(42vw,650px); min-width:min(82vw,300px);
+      width:min(48vw,700px);
+      min-width:min(86vw,300px);
       min-height:clamp(300px,48vw,590px);
-      display:flex; flex-direction:column; justify-content:center; align-items:center;
-      text-align:center; padding:clamp(30px,5vw,72px) clamp(24px,4vw,55px);
-      margin-top:-1vh; color:#7e2342;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:clamp(30px,5vw,72px) clamp(24px,4vw,55px);
+      margin-top:-1vh;
+      color:#7e2342;
     }
-    .info-kicker { font-size:clamp(12px,1.2vw,17px); letter-spacing:.15em; text-transform:uppercase; margin:0 0 10px; }
-    .info-panel h2 { color:#b72f61; font-size:clamp(25px,3.3vw,46px); line-height:1.1; margin:0 0 22px; }
-    .field { width:100%; margin:0 0 15px; font-family:Arial,sans-serif; }
-    .field-label { font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#a64c69; margin-bottom:5px; }
-    .field-value { font-size:clamp(17px,1.8vw,24px); font-weight:700; line-height:1.35; overflow-wrap:anywhere; }
-    .group-pill { display:inline-block; margin-top:4px; padding:8px 18px; border:1px solid #d88b9d; border-radius:999px; background:#fff4dfaa; }
-    .back { margin-top:15px; color:#9c3158; background:#fff4dfcc; border-color:#d88b9d; }
-    .error { font-family:Arial,sans-serif; padding:18px; border-radius:14px; background:#fff7e8; color:#8d1d3e; }
+
+    .info-kicker {
+      font-size:clamp(12px,1.2vw,17px);
+      letter-spacing:.15em;
+      text-transform:uppercase;
+      margin:0 0 10px;
+    }
+
+    .info-panel h2 {
+      color:#b72f61;
+      font-size:clamp(25px,3.3vw,46px);
+      font-weight:800;
+      line-height:1.1;
+      white-space:nowrap;
+      max-width:100%;
+      margin:0 0 22px;
+    }
+
+    .field {
+      width:100%;
+      margin:0 0 15px;
+      font-family:Arial,sans-serif;
+    }
+
+    .field-label {
+      font-size:15px;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#a64c69;
+      margin-bottom:5px;
+    }
+
+    .field-value {
+      font-size:clamp(19px,2vw,27px);
+      font-weight:800;
+      line-height:1.35;
+      overflow-wrap:anywhere;
+    }
+
+    .group-pill {
+      display:inline-block;
+      margin-top:4px;
+      padding:8px 18px;
+      border:1px solid #d88b9d;
+      border-radius:999px;
+      background:#fff4dfaa;
+      font-size:clamp(18px,2vw,25px);
+      font-weight:800;
+    }
+
+    /* DANH SÁCH THÀNH VIÊN HIỂN THỊ NGAY */
+    .member-preview {
+      width:100%;
+      margin-top:12px;
+      padding:15px;
+      border:1px solid #d88b9d;
+      border-radius:16px;
+      background:#fff4dfbb;
+      font-family:Arial,sans-serif;
+      text-align:left;
+    }
+
+    .member-preview h3 {
+      text-align:center;
+      color:#a52e58;
+      font-size:17px;
+      margin:0 0 12px;
+    }
+
+    .member-item {
+      padding:10px 0;
+      border-bottom:1px solid #e7bdc7;
+      line-height:1.45;
+    }
+
+    .member-item:last-child {
+      border-bottom:none;
+    }
+
+    .member-name {
+      color:#7e2342;
+      font-size:16px;
+      font-weight:800;
+    }
+
+    .member-detail {
+      color:#a64c69;
+      font-size:13px;
+      margin-top:3px;
+    }
+
+    .member-more {
+      width:100%;
+      margin-top:12px;
+      color:#9c3158;
+      background:#fff4dfcc;
+      border-color:#d88b9d;
+    }
+
+    .back {
+      margin-top:15px;
+      color:#9c3158;
+      background:#fff4dfcc;
+      border-color:#d88b9d;
+    }
+
+    /* TRANG DANH SÁCH THÀNH VIÊN RIÊNG */
+    .members-panel {
+      width:min(620px,90vw);
+      max-height:85svh;
+      overflow-y:auto;
+      padding:clamp(22px,4vw,42px);
+      border:1px solid #d88b9d;
+      border-radius:22px;
+      background:#fff4e9eF;
+      box-shadow:0 8px 30px #8b294b33;
+      text-align:center;
+      font-family:Arial,sans-serif;
+    }
+
+    .members-panel h2 {
+      color:#a52e58;
+      font-family:Georgia,serif;
+      font-size:clamp(25px,4vw,36px);
+      margin:0 0 8px;
+    }
+
+    .members-subtitle {
+      color:#a64c69;
+      font-size:14px;
+      margin-bottom:20px;
+    }
+
+    .members-group {
+      display:inline-block;
+      padding:8px 22px;
+      border:1px solid #d88b9d;
+      border-radius:999px;
+      background:#fff0d7;
+      color:#a52e58;
+      font-weight:800;
+      margin-bottom:15px;
+    }
+
+    .members-list {
+      text-align:left;
+    }
+
+    .members-list .member-item {
+      padding:15px 5px;
+    }
+
+    .members-list .member-name {
+      font-size:17px;
+    }
+
+    .members-list .member-detail {
+      font-size:14px;
+    }
+
+    .error {
+      font-family:Arial,sans-serif;
+      padding:18px;
+      border-radius:14px;
+      background:#fff7e8;
+      color:#8d1d3e;
+    }
+
     .petal {
-      position:fixed; top:-35px; z-index:5; pointer-events:none; opacity:.9;
-      color:#ffe2a1; text-shadow:0 1px 4px #b34b5a66;
+      position:fixed;
+      top:-35px;
+      z-index:5;
+      pointer-events:none;
+      opacity:.9;
+      color:#ffe2a1;
+      text-shadow:0 1px 4px #b34b5a66;
       animation:fall linear forwards;
     }
+
     @keyframes fall {
-      0% { transform:translate3d(0,-5vh,0) rotate(0deg); opacity:0; }
+      0% {
+        transform:translate3d(0,-5vh,0) rotate(0deg);
+        opacity:0;
+      }
       10% { opacity:.95; }
-      100% { transform:translate3d(55px,110vh,0) rotate(420deg); opacity:0; }
+      100% {
+        transform:translate3d(55px,110vh,0) rotate(420deg);
+        opacity:0;
+      }
     }
+
     @media (max-width:700px) {
-      .screen { min-height:100svh; padding:16px; background-position:center; }
-      .welcome { background-size:auto 100%; }
-      .welcome-content { width:72vw; min-width:0; margin-left:8vw; margin-top:-5vh; }
-      .info { background-size:auto 100%; }
-      .info-panel { width:70vw; min-width:0; min-height:56vw; padding:24px 18px; }
-      .info-panel h2 { margin-bottom:12px; }
-      .field { margin-bottom:9px; }
-      .field-label { font-size:10px; }
-      .field-value { font-size:15px; }
-      .btn { padding:10px 18px; font-size:14px; }
+      .screen {
+        min-height:100svh;
+        padding:16px;
+        background-position:center;
+      }
+
+      .welcome {
+        background-size:auto 100%;
+      }
+
+      .welcome-content {
+        width:72vw;
+        min-width:0;
+        margin-left:8vw;
+        margin-top:-5vh;
+      }
+
+      .info, .members {
+        background-size:auto 100%;
+      }
+
+      .info-panel {
+        width:86vw;
+        min-width:0;
+        min-height:56vw;
+        padding:24px 18px;
+      }
+
+      .info-panel h2 {
+        font-size:clamp(20px,5vw,32px);
+        margin-bottom:12px;
+      }
+
+      .field {
+        margin-bottom:9px;
+      }
+
+      .field-label {
+        font-size:12px;
+      }
+
+      .field-value {
+        font-size:18px;
+      }
+
+      .member-preview {
+        padding:12px;
+      }
+
+      .member-name {
+        font-size:14px;
+      }
+
+      .member-detail {
+        font-size:12px;
+      }
+
+      .btn {
+        padding:10px 18px;
+        font-size:14px;
+      }
+
+      .members-panel {
+        width:94vw;
+        padding:22px 17px;
+      }
     }
   </style>
 </head>
+
 <body>
   <main>
+
+    <!-- MÀN HÌNH CHÀO MỪNG -->
     <section class="screen welcome" id="welcome">
       <div class="welcome-content">
-        <p class="eyebrow">Đội hình tình nguyện</p>
-        <h1>Chào mừng<br>chiến sĩ Xuân Nhân Ái</h1>
-        <p>Một hành trình mới đang chờ chúng ta. Cùng mở lời chào và khám phá vị trí của bạn trong đội hình nhé!</p>
-        <button class="btn" id="openInfo">Khám phá thông tin của bạn</button>
+        <p class="eyebrow">
+         Chiến dịch Xuân Tình Nguyện 2027
+        </p>
+
+        <h1>Chào mừng<br>Các chiến sĩ Đội hình Xuân Nhân Ái</h1>
+
+        <p>
+          Lời đầu tiên, Ban Chỉ huy đội hình cảm ơn bạn vì đã chọn ở lại và đồng hành
+          cùng chúng mình trong mùa xuân lần này. Cùng mở lời chào
+          và khám phá vị trí của bạn trong đội hình nhé!
+        </p>
+
+        <button class="btn" id="openInfo">
+          Điều hấp dẫn gì đang chờ đợi?
+        </button>
       </div>
     </section>
 
+    <!-- MÀN HÌNH THÔNG TIN CÁ NHÂN -->
     <section class="screen info" id="info">
       <div class="info-panel" id="infoPanel">
+
         <p class="info-kicker">Thông tin chiến sĩ</p>
+
         <h2 id="soldierName">Đang tải...</h2>
+
         <div class="field">
-          <div class="field-label">Nhiệm vụ</div>
+          <div class="field-label">Ban hoạt </div>
           <div class="field-value" id="soldierRole"></div>
         </div>
+
         <div class="field">
           <div class="field-label">Nhóm gây quỹ</div>
-          <div class="field-value"><span class="group-pill" id="soldierGroup"></span></div>
+          <div class="field-value">
+            <span class="group-pill" id="soldierGroup"></span>
+          </div>
         </div>
-        <button class="btn back" id="back">Quay lại lời chào</button>
+
+        <!-- DANH SÁCH THÀNH VIÊN CÙNG NHÓM -->
+        <div class="member-preview">
+          <h3>Thành viên nhóm gây quỹ của tôi</h3>
+          <div id="inlineMembers">
+            Đang tải danh sách...
+          </div>
+        </div>
+
+        <button class="btn member-more" id="openMembers">
+          Xem danh sách thành viên nhóm gây quỹ
+        </button>
+
+          <button class="btn member-more" id="openMembers">
+          Xem danh sách thành viên ban hoạt động
+        </button>
+        
+        <button class="btn back" id="back">
+          Quay lại lời chào
+        </button>
+
       </div>
     </section>
+
+    <!-- MÀN HÌNH DANH SÁCH THÀNH VIÊN RIÊNG -->
+    <section class="screen members" id="membersScreen">
+      <div class="members-panel">
+
+        <h2>Thành viên nhóm</h2>
+
+        <p class="members-subtitle">
+          Những chiến sĩ cùng đồng hành trong nhóm gây quỹ
+        </p>
+
+        <div class="members-group" id="membersGroup"></div>
+
+        <div class="members-list" id="fullMembers">
+          Đang tải danh sách...
+        </div>
+
+        <button class="btn back" id="backToInfo">
+          Quay lại thông tin chiến sĩ
+        </button>
+
+      </div>
+    </section>
+
+    <!-- MÀN HÌNH DANH SÁCH THÀNH VIÊN RIÊNG -->
+    <section class="screen members" id="membersScreen">
+      <div class="members-panel">
+
+        <h2>Thành viên ban hoạt động</h2>
+
+        <p class="members-subtitle">
+          Những chiến sĩ cùng đồng hành trong ban
+        </p>
+
+        <div class="members-group" id="membersGroup"></div>
+
+        <div class="members-list" id="fullMembers">
+          Đang tải danh sách...
+        </div>
+
+        <button class="btn back" id="backToInfo">
+          Quay lại thông tin chiến sĩ
+        </button>
+
   </main>
 
   <script>
     const params = new URLSearchParams(window.location.search);
     const soldierId = params.get("id");
+
     const welcome = document.getElementById("welcome");
     const info = document.getElementById("info");
+    const membersScreen = document.getElementById("membersScreen");
 
+    let soldiers = [];
+    let currentSoldier = null;
+
+    // LẤY TÊN NHÓM GÂY QUỸ
+    function getGroup(soldier) {
+      return soldier.group ||
+        soldier.fundraising_group ||
+        soldier.fundraising ||
+        "Chưa chốt";
+    }
+
+    // LẤY BAN HOẠT ĐỘNG
+    function getDepartment(soldier) {
+      return soldier.department ||
+        soldier.activity_department ||
+        "Chưa cập nhật";
+    }
+
+    // TẠO MỘT DÒNG THÀNH VIÊN
+    function createMemberElement(soldier, index) {
+      const item = document.createElement("div");
+      item.className = "member-item";
+
+      const name = document.createElement("div");
+      name.className = "member-name";
+      name.textContent = (index + 1) + ". " +
+        (soldier.name || "Chưa cập nhật");
+
+      const detail = document.createElement("div");
+      detail.className = "member-detail";
+      detail.textContent =
+        (soldier.role || soldier.position || "Chưa cập nhật") +
+        " · Ban " + getDepartment(soldier);
+
+      item.appendChild(name);
+      item.appendChild(detail);
+
+      return item;
+    }
+
+    // HIỂN THỊ DANH SÁCH CÙNG NHÓM
+    function renderMembers() {
+      const group = getGroup(currentSoldier);
+
+      const groupMembers = soldiers.filter(person =>
+        getGroup(person) === group
+      );
+
+      const inline = document.getElementById("inlineMembers");
+      const full = document.getElementById("fullMembers");
+
+      inline.innerHTML = "";
+      full.innerHTML = "";
+
+      document.getElementById("membersGroup").textContent = group;
+
+      if (groupMembers.length === 0) {
+        inline.textContent = "Chưa có thành viên trong nhóm.";
+        full.textContent = "Chưa có thành viên trong nhóm.";
+        return;
+      }
+
+      groupMembers.forEach((person, index) => {
+        inline.appendChild(createMemberElement(person, index));
+        full.appendChild(createMemberElement(person, index));
+      });
+    }
+
+    // TẢI DỮ LIỆU CHIẾN SĨ
     async function loadSoldier() {
       try {
-        const response = await fetch("data.json", { cache: "no-store" });
-        if (!response.ok) throw new Error("Không tải được data.json");
+        const response = await fetch("data.json", {
+          cache: "no-store"
+        });
+
+        if (!response.ok) {
+          throw new Error("Không tải được data.json");
+        }
+
         const data = await response.json();
-        const list = Array.isArray(data) ? data : (data.soldiers || []);
-        const soldier = list.find(item => item.id === soldierId);
-        if (!soldier) {
+
+        soldiers = Array.isArray(data)
+          ? data
+          : (data.soldiers || []);
+
+        currentSoldier = soldiers.find(
+          item => item.id === soldierId
+        );
+
+        if (!currentSoldier) {
           document.getElementById("infoPanel").innerHTML =
             '<div class="error"><strong>Chưa tìm thấy thông tin chiến sĩ.</strong><br>Ngọc vui lòng kiểm tra lại mã QR hoặc liên hệ Ban Tổ chức nhé.</div>';
-          return;
+          return false;
         }
-        document.getElementById("soldierName").textContent = soldier.name || "Chưa cập nhật";
-        document.getElementById("soldierRole").textContent = soldier.role || soldier.position || "Chưa cập nhật";
-        document.getElementById("soldierGroup").textContent = soldier.group || soldier.fundraising_group || soldier.fundraising || "Chưa cập nhật";
+
+        document.getElementById("soldierName").textContent =
+          currentSoldier.name || "Chưa cập nhật";
+
+        document.getElementById("soldierRole").textContent =
+          currentSoldier.role ||
+          currentSoldier.position ||
+          "Chưa cập nhật";
+
+        document.getElementById("soldierGroup").textContent =
+          getGroup(currentSoldier);
+
+        renderMembers();
+
+        return true;
+
       } catch (error) {
         document.getElementById("infoPanel").innerHTML =
           '<div class="error"><strong>Chưa tải được dữ liệu.</strong><br>Vui lòng thử tải lại trang sau ít phút.</div>';
+
+        return false;
       }
     }
 
-    document.getElementById("openInfo").addEventListener("click", async () => {
-      await loadSoldier();
-      welcome.classList.add("hide");
-      info.classList.add("show");
-      window.scrollTo(0,0);
-    });
-    document.getElementById("back").addEventListener("click", () => {
-      info.classList.remove("show");
-      welcome.classList.remove("hide");
-      window.scrollTo(0,0);
-    });
+    // MỞ THÔNG TIN CÁ NHÂN
+    document.getElementById("openInfo").addEventListener(
+      "click", async () => {
+        const loaded = await loadSoldier();
 
-    // Cánh hoa rơi nhẹ trên cả hai màn hình.
+        welcome.classList.add("hide");
+        info.classList.add("show");
+
+        window.scrollTo(0, 0);
+      }
+    );
+
+    // MỞ DANH SÁCH THÀNH VIÊN RIÊNG
+    document.getElementById("openMembers").addEventListener(
+      "click", () => {
+        info.classList.remove("show");
+        membersScreen.classList.add("show");
+        window.scrollTo(0, 0);
+      }
+    );
+
+    // QUAY LẠI THÔNG TIN CÁ NHÂN
+    document.getElementById("backToInfo").addEventListener(
+      "click", () => {
+        membersScreen.classList.remove("show");
+        info.classList.add("show");
+        window.scrollTo(0, 0);
+      }
+    );
+
+    // QUAY LẠI LỜI CHÀO
+    document.getElementById("back").addEventListener(
+      "click", () => {
+        info.classList.remove("show");
+        welcome.classList.remove("hide");
+        window.scrollTo(0, 0);
+      }
+    );
+
+    // CÁNH HOA RƠI NHẸ
     function makePetal() {
       const petal = document.createElement("span");
+
       petal.className = "petal";
       petal.textContent = Math.random() > .5 ? "✿" : "❀";
       petal.style.left = Math.random() * 100 + "vw";
-      petal.style.fontSize = (12 + Math.random() * 13) + "px";
-      petal.style.animationDuration = (7 + Math.random() * 6) + "s";
+      petal.style.fontSize =
+        (12 + Math.random() * 13) + "px";
+      petal.style.animationDuration =
+        (7 + Math.random() * 6) + "s";
+
       document.body.appendChild(petal);
+
       setTimeout(() => petal.remove(), 14000);
     }
+
     setInterval(makePetal, 650);
   </script>
 </body>
