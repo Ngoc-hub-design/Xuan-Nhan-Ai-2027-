@@ -176,46 +176,6 @@
       font-weight: 800;
     }
 
-    .member-preview {
-      width: 100%;
-      margin-top: 12px;
-      padding: 15px;
-      border: 1px solid #d88b9d;
-      border-radius: 16px;
-      background: #fff4dfbb;
-      font-family: Arial, sans-serif;
-      text-align: left;
-    }
-
-    .member-preview h3 {
-      text-align: center;
-      color: #a52e58;
-      font-size: 17px;
-      margin: 0 0 12px;
-    }
-
-    .member-item {
-      padding: 10px 0;
-      border-bottom: 1px solid #e7bdc7;
-      line-height: 1.45;
-    }
-
-    .member-item:last-child {
-      border-bottom: none;
-    }
-
-    .member-name {
-      color: #7e2342;
-      font-size: 16px;
-      font-weight: 800;
-    }
-
-    .member-detail {
-      color: #a64c69;
-      font-size: 13px;
-      margin-top: 3px;
-    }
-
     .member-more {
       width: 100%;
       margin-top: 12px;
@@ -274,10 +234,70 @@
 
     .members-list .member-item {
       padding: 15px 5px;
+      border-bottom: 1px solid #e7bdc7;
+    }
+
+    .members-list .member-item:last-child {
+      border-bottom: none;
+    }
+
+    /* TÊN THÀNH VIÊN VÀ NHÃN CHỨC VỤ */
+    .member-name-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .member-name {
+      color: #7e2342;
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.5;
     }
 
     .members-list .member-name {
       font-size: 17px;
+    }
+
+    .member-tag {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      line-height: 1.35;
+      white-space: normal;
+      border: 1px solid transparent;
+    }
+
+    /* Nhãn trưởng nhóm gây quỹ */
+    .member-tag.fundraising-leader {
+      color: #a34b18;
+      background: #fff0d0;
+      border-color: #e9bd70;
+    }
+
+    /* Nhãn trưởng ban hoạt động */
+    .member-tag.department-leader {
+      color: #9d315e;
+      background: #ffe5ef;
+      border-color: #e9a7c0;
+    }
+
+    /* Nhãn thành viên */
+    .member-tag.member {
+      color: #8c6380;
+      background: #f7eaf2;
+      border-color: #e5c9d9;
+    }
+
+    .member-detail {
+      color: #a64c69;
+      font-size: 13px;
+      margin-top: 4px;
+      line-height: 1.5;
     }
 
     .members-list .member-detail {
@@ -365,18 +385,6 @@
         font-size: 18px;
       }
 
-      .member-preview {
-        padding: 12px;
-      }
-
-      .member-name {
-        font-size: 14px;
-      }
-
-      .member-detail {
-        font-size: 12px;
-      }
-
       .btn {
         padding: 10px 18px;
         font-size: 14px;
@@ -385,6 +393,23 @@
       .members-panel {
         width: 94vw;
         padding: 22px 17px;
+      }
+
+      .member-name {
+        font-size: 14px;
+      }
+
+      .members-list .member-name {
+        font-size: 15px;
+      }
+
+      .member-tag {
+        font-size: 9px;
+        padding: 4px 7px;
+      }
+
+      .member-detail {
+        font-size: 12px;
       }
     }
   </style>
@@ -403,12 +428,12 @@
 
         <h1>
           Chào mừng<br>
-    Chiến sĩ Đội hình Xuân Nhân Ái
+          Chiến sĩ Đội hình Xuân Nhân Ái
         </h1>
-        
+
         <p>
           Lời đầu tiên, Ban Chỉ huy đội hình cảm ơn bạn vì đã chọn ở lại
-          và đồng hành cùng chúng mình trong mùa xuân lần này. 
+          và đồng hành cùng chúng mình trong mùa xuân lần này.
           Cùng mở lời chào và khám phá những điều thú vị của bạn trong đội hình nhé!
         </p>
 
@@ -533,17 +558,50 @@
         "Chưa cập nhật";
     }
 
+    // LẤY NHÃN CHỨC VỤ
+    function getPositionTag(soldier) {
+      return soldier.position_tag ||
+        "Thành viên nhóm gây quỹ";
+    }
+
+    // XÁC ĐỊNH LOẠI NHÃN ĐỂ TÔ MÀU
+    function getTagClass(soldier) {
+      const tag = getPositionTag(soldier);
+
+      if (tag.includes("Trưởng nhóm gây quỹ")) {
+        return "fundraising-leader";
+      }
+
+      if (tag.includes("Trưởng ban")) {
+        return "department-leader";
+      }
+
+      return "member";
+    }
+
     // TẠO MỘT DÒNG THÀNH VIÊN
     function createMemberElement(soldier, index) {
       const item = document.createElement("div");
       item.className = "member-item";
 
-      const name = document.createElement("div");
+      // Hàng tên và nhãn chức vụ
+      const nameRow = document.createElement("div");
+      nameRow.className = "member-name-row";
+
+      const name = document.createElement("span");
       name.className = "member-name";
 
       name.textContent =
         (index + 1) + ". " + (soldier.name || "Chưa cập nhật");
 
+      const tag = document.createElement("span");
+      tag.className = "member-tag " + getTagClass(soldier);
+      tag.textContent = getPositionTag(soldier);
+
+      nameRow.appendChild(name);
+      nameRow.appendChild(tag);
+
+      // Thông tin chức vụ và ban
       const detail = document.createElement("div");
       detail.className = "member-detail";
 
@@ -551,7 +609,7 @@
         (soldier.role || soldier.position || "Chưa cập nhật") +
         " · Ban " + getDepartment(soldier);
 
-      item.appendChild(name);
+      item.appendChild(nameRow);
       item.appendChild(detail);
 
       return item;
@@ -567,21 +625,20 @@
         getGroup(person) === group
       );
 
-      const inline = document.getElementById("inlineMembers");
-      const fullGroup = document.getElementById("fullGroupMembers");
+      const fullGroup =
+        document.getElementById("fullGroupMembers");
 
-      inline.innerHTML = "";
       fullGroup.innerHTML = "";
 
       document.getElementById("groupMembersName").textContent = group;
 
       if (groupMembers.length === 0) {
-        inline.textContent = "Chưa có thành viên trong nhóm.";
         fullGroup.textContent = "Chưa có thành viên trong nhóm.";
       } else {
         groupMembers.forEach((person, index) => {
-          inline.appendChild(createMemberElement(person, index));
-          fullGroup.appendChild(createMemberElement(person, index));
+          fullGroup.appendChild(
+            createMemberElement(person, index)
+          );
         });
       }
 
@@ -644,9 +701,7 @@
           currentSoldier.name || "Chưa cập nhật";
 
         document.getElementById("soldierRole").textContent =
-          currentSoldier.role ||
-          currentSoldier.position ||
-          "Chưa cập nhật";
+          getDepartment(currentSoldier);
 
         document.getElementById("soldierGroup").textContent =
           getGroup(currentSoldier);
@@ -656,6 +711,8 @@
         return true;
 
       } catch (error) {
+        console.error(error);
+
         document.getElementById("infoPanel").innerHTML = "";
 
         const errorBox = document.createElement("div");
@@ -673,7 +730,7 @@
     document.getElementById("openInfo").addEventListener(
       "click", async () => {
 
-        await loadSoldier();
+        const loaded = await loadSoldier();
 
         welcome.classList.add("hide");
         info.classList.add("show");
