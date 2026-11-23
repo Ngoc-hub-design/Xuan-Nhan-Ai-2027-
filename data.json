@@ -1,38 +1,42 @@
-
 [
   {
     "id": "XNA001",
     "name": "Phạm Thị Lam Giang",
     "role": "Đội trưởng",
     "department": "",
-    "fundraising": "Nhóm vượt KPI"
+    "fundraising": "Nhóm 1",
+    "position_tag": "Trưởng BTC"
   },
   {
     "id": "XNA002",
     "name": "Võ Đình Diệu Hằng",
     "role": "Đội phó Chương trình",
     "department": "Dạy học",
-    "fundraising": "Nhóm vượt KPI"
+    "fundraising": "Vượt KPI",
+    "position_tag": "Trưởng ban"
   },
   {
     "id": "XNA003",
     "name": "Ông Nguyễn Nhựt Huy",
     "role": "Đội phó Hậu cần - Tài chính",
     "department": "Hậu cần",
-    "fundraising": "Nhóm vượt KPI"
+    "fundraising": "Vượt KPI",
+    "position_tag": "Trưởng ban"
   },
   {
     "id": "XNA004",
     "name": "Nguyễn Hoài Bảo Ngọc",
     "role": "Đội phó Nhân sự",
     "department": "Văn nghệ",
-    "fundraising": "Nhóm vượt KPI"
+    "fundraising": "Vượt KPI",
+    "position_tag": "Trưởng ban"
   },
   {
     "id": "XNA005",
     "name": "Đặng Nhã Quyên",
     "role": "TV BCH Truyền thông",
     "department": "Truyền thông",
-    "fundraising": "Nhóm vượt KPI"
+    "fundraising": "Vượt KPI",
+    "position_tag": "Trưởng ban"
   }
 ]
