@@ -1,21 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ec5790">
-  <title>Chào mừng chiến sĩ Xuân Nhân Ái</title>
+  <title>Xuân Nhân Ái 2027</title>
 
   <style>
-    :root {
-      --pink: #e94f8b;
-      --deep: #a51e36;
-      --gold: #ffe6a0;
-      --ink: #6d1830;
-      --soft: #fff4e9;
-      --border: #d88b9d;
-    }
-
     * {
       box-sizing: border-box;
     }
@@ -23,31 +15,27 @@
     html, body {
       margin: 0;
       min-height: 100%;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: Arial, sans-serif;
     }
 
     body {
-      min-height: 100vh;
       overflow-x: hidden;
-      background: #f7b6ca;
-      color: var(--ink);
+      background: #fff4e9;
     }
 
     button {
       font-family: inherit;
+      cursor: pointer;
     }
 
     .screen {
-      min-height: 100svh;
-      width: 100%;
-      position: relative;
       display: none;
+      min-height: 100vh;
+      width: 100%;
       align-items: center;
       justify-content: center;
-      padding: clamp(18px, 4vw, 56px);
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden;
     }
 
     .screen.show {
@@ -55,80 +43,105 @@
     }
 
     /* =========================
-       TRANG CHÀO MỪNG
+       TRANG 1 - CHÀO MỪNG
     ========================= */
 
     .welcome {
       background-image: url("assets/nen-chao-mung.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      text-align: center;
+      color: #fff3d6;
+      padding: 35px 20px;
     }
 
     .welcome-content {
-      width: min(66vw, 850px);
-      min-width: min(86vw, 320px);
-      margin-top: -4vh;
-      text-align: center;
-      color: #fff8e8;
-      text-shadow: 0 2px 8px rgba(117, 20, 58, .35);
-      animation: appear 1s ease both;
+      width: min(90%, 700px);
+      position: relative;
+      z-index: 2;
+      margin: auto;
     }
 
-    .eyebrow {
-      font-size: clamp(13px, 1.5vw, 22px);
-      letter-spacing: .18em;
+    .welcome-eyebrow {
+      font-size: clamp(12px, 1.5vw, 17px);
+      letter-spacing: .22em;
       text-transform: uppercase;
-      margin: 0 0 16px;
+      margin-bottom: 22px;
+      color: #ffe6ae;
+      font-weight: 700;
     }
 
     .welcome h1 {
-      font-size: clamp(30px, 5.2vw, 72px);
-      line-height: 1.08;
-      margin: 0 auto 18px;
-      color: #fff0c3;
-      font-weight: 800;
+      font-family: Georgia, serif;
+      font-size: clamp(35px, 6vw, 68px);
+      line-height: 1.15;
+      margin: 0 0 22px;
+      color: #fff0c7;
+      text-shadow: 0 3px 12px #713b36aa;
     }
 
-    .welcome-message {
-      font-family: Arial, sans-serif;
-      font-size: clamp(14px, 1.5vw, 21px);
-      line-height: 1.7;
-      margin: 0 auto 28px;
-      max-width: 650px;
+    .welcome-description {
+      font-size: clamp(14px, 1.5vw, 17px);
+      line-height: 1.8;
+      max-width: 590px;
+      margin: 0 auto 30px;
+      color: #fff7e7;
+      text-shadow: 0 2px 8px #66333399;
     }
 
-    .btn {
-      border: 2px solid #ffe8a8;
+    .main-btn {
+      border: 1px solid #f8dca5;
+      background: linear-gradient(135deg, #f7d69a, #e9a9a5);
+      color: #7e2342;
+      padding: 14px 27px;
       border-radius: 999px;
-      padding: 13px 28px;
-      color: #fff6d9;
-      background: linear-gradient(135deg, #c72e3f, #e85b87);
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 5px 18px #8b294b55;
-      transition: transform .2s, filter .2s;
+      font-size: 15px;
+      font-weight: 800;
+      box-shadow: 0 5px 18px #5e263344;
+      transition: .25s;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.06);
+    .main-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px #5e263355;
     }
 
-    .welcome-footer {
-      margin-top: 35px;
-      font-family: Arial, sans-serif;
-      font-size: 11px;
-      letter-spacing: .18em;
-      color: #fff1d5;
-      opacity: .9;
+    /* Cánh hoa rơi */
+
+    .petal {
+      position: fixed;
+      top: -30px;
+      z-index: 5;
+      pointer-events: none;
+      color: #ffd2d9;
+      font-size: 18px;
+      opacity: .8;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-30px) rotate(0deg);
+        opacity: .9;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
     }
 
     /* =========================
-       TRANG THÔNG TIN
+       TRANG 2 - THÔNG TIN CÁ NHÂN
     ========================= */
 
     .info,
     .members {
       background-image: url("assets/nen-thong-tin.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 35px 15px;
     }
 
     .info-panel {
@@ -143,7 +156,8 @@
       padding: clamp(30px, 5vw, 72px) clamp(24px, 4vw, 55px);
       margin-top: -1vh;
       color: #7e2342;
-      animation: appear .7s ease both;
+      position: relative;
+      z-index: 2;
     }
 
     .info-kicker {
@@ -151,28 +165,33 @@
       letter-spacing: .15em;
       text-transform: uppercase;
       margin: 0 0 10px;
+      color: #a64c69;
+      font-weight: 700;
     }
 
     .info-panel h2 {
+      font-family: Georgia, serif;
       color: #b72f61;
       font-size: clamp(25px, 3.3vw, 46px);
       font-weight: 800;
       line-height: 1.1;
+      white-space: nowrap;
+      max-width: 100%;
       margin: 0 0 22px;
     }
 
     .personal-fields {
       width: 100%;
-      font-family: Arial, sans-serif;
     }
 
     .field {
       width: 100%;
       margin: 0 0 15px;
+      font-family: Arial, sans-serif;
     }
 
     .field-label {
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 800;
       letter-spacing: .12em;
       text-transform: uppercase;
@@ -181,253 +200,148 @@
     }
 
     .field-value {
-      font-size: clamp(18px, 2vw, 26px);
+      font-size: clamp(19px, 2vw, 27px);
       font-weight: 800;
       line-height: 1.35;
       overflow-wrap: anywhere;
-    }
-
-    .group-pill {
-      display: inline-block;
-      margin-top: 4px;
-      padding: 8px 18px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: #fff4dfaa;
-      font-size: clamp(17px, 2vw, 24px);
-      font-weight: 800;
+      color: #7e2342;
     }
 
     .info-actions {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 10px;
-      margin-top: 14px;
+      margin-top: 13px;
     }
 
-    .light-btn {
-      border: 1px solid var(--border);
+    .btn {
+      border: 1px solid #d88b9d;
       border-radius: 999px;
-      padding: 11px 19px;
-      color: #9c3158;
+      padding: 11px 20px;
       background: #fff4dfdd;
+      color: #8c3152;
       font-size: 14px;
       font-weight: 800;
-      cursor: pointer;
       transition: .2s;
     }
 
-    .light-btn:hover {
-      background: #ffe9d4;
+    .btn:hover {
+      background: #f8d9df;
       transform: translateY(-2px);
     }
 
-    .page-footer {
-      margin-top: 20px;
-      font-family: Arial, sans-serif;
-      color: #a64c69;
-      font-size: 11px;
-      letter-spacing: .13em;
+    .btn-primary {
+      background: #b72f61;
+      border-color: #b72f61;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #96234e;
     }
 
     /* =========================
-       TRANG DANH SÁCH
+       TRANG DANH SÁCH THÀNH VIÊN
     ========================= */
 
     .members-panel {
-      width: min(620px, 90vw);
-      max-height: 85svh;
+      width: min(900px, 94vw);
+      max-height: 88vh;
       overflow-y: auto;
-      padding: clamp(22px, 4vw, 42px);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      background: #fff4e9ef;
-      box-shadow: 0 8px 30px #8b294b33;
+      padding: 35px 28px;
       text-align: center;
-      font-family: Arial, sans-serif;
-      animation: appear .6s ease both;
+      color: #7e2342;
+      position: relative;
+      z-index: 2;
     }
 
     .members-kicker {
-      color: #b75b7a;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .17em;
+      font-size: 13px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: #a64c69;
+      font-weight: 700;
       margin-bottom: 10px;
     }
 
     .members-panel h2 {
-      color: #a52e58;
       font-family: Georgia, serif;
-      font-size: clamp(25px, 4vw, 36px);
-      margin: 0 0 8px;
+      font-size: clamp(26px, 4vw, 42px);
+      color: #b72f61;
+      margin: 0 0 12px;
     }
 
-    .members-subtitle {
-      color: #a64c69;
+    .members-description {
       font-size: 14px;
       line-height: 1.6;
-      margin-bottom: 20px;
+      color: #8c4560;
+      margin: 0 auto 22px;
     }
 
-    .members-group {
-      display: inline-block;
-      padding: 8px 22px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: #fff0d7;
-      color: #a52e58;
-      font-weight: 800;
-      margin-bottom: 15px;
-    }
-
-    .members-list {
+    .member-list {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 13px;
+      margin: 20px 0;
       text-align: left;
     }
 
-    .member-item {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      padding: 15px 5px;
-      border-bottom: 1px solid #e7bdc7;
-    }
-
-    .member-item:last-child {
-      border-bottom: none;
-    }
-
-    .member-number {
-      width: 36px;
-      height: 36px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: #f8dce7;
-      color: #a52e58;
-      font-weight: 800;
-    }
-
-    .member-content {
-      min-width: 0;
+    .member-card {
+      border: 1px solid #d88b9d;
+      border-radius: 16px;
+      background: #fff4dfd9;
+      padding: 17px;
+      color: #7e2342;
     }
 
     .member-name {
-      color: #7e2342;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 800;
-      line-height: 1.45;
-      overflow-wrap: anywhere;
+      line-height: 1.4;
+      margin-bottom: 8px;
     }
 
-    .member-detail {
-      color: #a64c69;
+    .member-role {
       font-size: 13px;
-      margin-top: 5px;
+      color: #a64c69;
       line-height: 1.5;
+      font-weight: 700;
     }
 
-    .member-tag {
-      display: inline-block;
-      margin-top: 6px;
-      padding: 5px 11px;
-      border-radius: 999px;
-      background: #fce4ed;
-      color: #a52e58;
+    .member-code {
       font-size: 12px;
-      font-weight: 800;
+      color: #a86a7e;
+      margin-top: 8px;
     }
 
-    .back {
-      margin-top: 22px;
-    }
-
-    .error {
-      font-family: Arial, sans-serif;
-      padding: 18px;
-      border-radius: 14px;
-      background: #fff7e8;
-      color: #8d1d3e;
-      line-height: 1.7;
+    .empty-message {
+      color: #a64c69;
+      font-size: 15px;
+      padding: 20px;
     }
 
     /* =========================
-       CÁNH HOA RƠI
-    ========================= */
-
-    .petal {
-      position: fixed;
-      top: -35px;
-      z-index: 5;
-      pointer-events: none;
-      opacity: .9;
-      color: #ffe2a1;
-      text-shadow: 0 1px 4px #b34b5a66;
-      animation: fall linear forwards;
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translate3d(0, -5vh, 0) rotate(0deg);
-        opacity: 0;
-      }
-      10% {
-        opacity: .95;
-      }
-      100% {
-        transform: translate3d(55px, 110vh, 0) rotate(420deg);
-        opacity: 0;
-      }
-    }
-
-    @keyframes appear {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* =========================
-       ĐIỆN THOẠI
+       RESPONSIVE
     ========================= */
 
     @media (max-width: 700px) {
-      .screen {
-        min-height: 100svh;
-        padding: 16px;
+      .welcome {
         background-position: center;
       }
 
-      .welcome {
-        background-size: auto 100%;
-      }
-
       .welcome-content {
-        width: 72vw;
-        min-width: 0;
-        margin-left: 8vw;
-        margin-top: -5vh;
+        width: 94%;
       }
 
       .welcome h1 {
-        font-size: clamp(27px, 7vw, 43px);
+        font-size: clamp(32px, 9vw, 48px);
       }
 
-      .welcome-message {
+      .welcome-description {
         font-size: 14px;
-        line-height: 1.6;
-      }
-
-      .welcome .btn {
-        padding: 11px 17px;
-        font-size: 13px;
+        line-height: 1.7;
       }
 
       .info,
@@ -443,24 +357,25 @@
       }
 
       .info-panel h2 {
-        font-size: clamp(22px, 6vw, 32px);
-        margin-bottom: 15px;
+        font-size: clamp(20px, 5vw, 32px);
+        margin-bottom: 12px;
       }
 
       .field {
-        margin-bottom: 11px;
+        margin-bottom: 9px;
       }
 
       .field-label {
-        font-size: 11px;
+        font-size: 12px;
       }
 
       .field-value {
-        font-size: 17px;
+        font-size: 18px;
       }
 
-      .group-pill {
-        font-size: 17px;
+      .btn {
+        padding: 10px 18px;
+        font-size: 13px;
       }
 
       .members-panel {
@@ -468,19 +383,8 @@
         padding: 22px 17px;
       }
 
-      .member-name {
-        font-size: 15px;
-      }
-
-      .member-detail {
-        font-size: 12px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
+      .member-list {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -488,11 +392,11 @@
 
 <body>
 
-  <!-- TRANG CHÀO MỪNG -->
+  <!-- TRANG 1: CHÀO MỪNG -->
+
   <section id="welcomeScreen" class="screen welcome show">
     <div class="welcome-content">
-
-      <div class="eyebrow">
+      <div class="welcome-eyebrow">
         Chiến dịch Xuân Tình Nguyện 2027
       </div>
 
@@ -501,97 +405,85 @@
         Đội hình Xuân Nhân Ái
       </h1>
 
-      <p class="welcome-message">
+      <p class="welcome-description">
         Lời đầu tiên, Ban Chỉ huy đội hình cảm ơn bạn vì đã chọn ở lại
         và đồng hành cùng chúng mình trong mùa xuân lần này.
-        Cùng mở lời chào và khám phá những điều thú vị của bạn trong đội hình nhé!
+        Cùng mở lời chào và khám phá những điều thú vị của bạn
+        trong đội hình nhé!
       </p>
 
-      <button class="btn" onclick="openPersonalInfo()">
+      <button class="main-btn" onclick="openPersonalPage()">
         Điều hấp dẫn gì đang chờ đợi?
       </button>
-
-      <div class="welcome-footer">
-        XUÂN NHÂN ÁI 2027 · CÙNG NHAU VIẾT NÊN MÙA XUÂN
-      </div>
-
     </div>
   </section>
 
 
-  <!-- TRANG THÔNG TIN CÁ NHÂN -->
+  <!-- TRANG 2: THÔNG TIN CÁ NHÂN -->
+
   <section id="infoScreen" class="screen info">
     <div class="info-panel">
+      <p class="info-kicker">Xuân Nhân Ái 2027</p>
 
-      <div class="info-kicker">Xuân Nhân Ái 2027</div>
       <h2>Thông tin chiến sĩ</h2>
 
-      <div id="personalInfo" class="personal-fields">
-        <div class="error">Đang tải thông tin chiến sĩ...</div>
-      </div>
+      <div id="personalInfo" class="personal-fields"></div>
 
       <div class="info-actions">
-        <button class="light-btn" onclick="showGroupScreen()">
-          ✿ Nhóm gây quỹ
+        <button class="btn" onclick="showGroupScreen()">
+          Nhóm gây quỹ
         </button>
 
-        <button class="light-btn" onclick="showDepartmentScreen()">
-          ✿ Ban hoạt động
+        <button class="btn" onclick="showDepartmentScreen()">
+          Ban hoạt động
+        </button>
+
+        <button class="btn btn-primary" onclick="backToWelcome()">
+          Quay lại
         </button>
       </div>
-
-      <button class="light-btn back" onclick="showScreen('welcomeScreen')">
-        ← Quay lại lời chào
-      </button>
-
-      <div class="page-footer">
-        XUÂN NHÂN ÁI 2027
-      </div>
-
     </div>
   </section>
 
 
-  <!-- TRANG NHÓM GÂY QUỸ -->
+  <!-- TRANG 3: DANH SÁCH NHÓM GÂY QUỸ -->
+
   <section id="groupScreen" class="screen members">
     <div class="members-panel">
+      <div class="members-kicker">Xuân Nhân Ái 2027</div>
 
-      <div class="members-kicker">CÙNG NHAU GÓP SỨC</div>
-      <h2>Nhóm gây quỹ</h2>
+      <h2 id="groupTitle">Nhóm gây quỹ</h2>
 
-      <div class="members-subtitle">
-        Những chiến sĩ cùng đồng hành trong nhóm gây quỹ của bạn
-      </div>
+      <p class="members-description">
+        Những người đồng hành cùng bạn trong hành trình gây quỹ.
+      </p>
 
-      <div id="groupTitle" class="members-group"></div>
-      <div id="groupMembers" class="members-list"></div>
+      <div id="groupList" class="member-list"></div>
 
-      <button class="light-btn back" onclick="showScreen('infoScreen')">
-        ← Quay lại thông tin
+      <button class="btn btn-primary" onclick="backToPersonalPage()">
+        Quay lại thông tin cá nhân
       </button>
-
     </div>
   </section>
 
 
-  <!-- TRANG BAN HOẠT ĐỘNG -->
+  <!-- TRANG 4: DANH SÁCH BAN HOẠT ĐỘNG -->
+
   <section id="departmentScreen" class="screen members">
     <div class="members-panel">
+      <div class="members-kicker">Xuân Nhân Ái 2027</div>
 
-      <div class="members-kicker">CÙNG NHAU ĐỒNG HÀNH</div>
-      <h2>Ban hoạt động</h2>
+      <h2 id="departmentTitle">Ban hoạt động</h2>
 
-      <div class="members-subtitle">
-        Những chiến sĩ cùng đồng hành trong ban hoạt động của bạn
-      </div>
+      <p class="members-description">
+        Những thành viên cùng bạn tạo nên hành trình Xuân Nhân Ái.
+      </p>
 
-      <div id="departmentTitle" class="members-group"></div>
-      <div id="departmentMembers" class="members-list"></div>
+      <div id="departmentList" class="member-list"></div>
 
-      <button class="light-btn back" onclick="showScreen('infoScreen')">
-        ← Quay lại thông tin
+      <button class="btn btn-primary" onclick="backToPersonalPage()">
+        Quay lại thông tin cá nhân
       </button>
-
     </div>
   </section>
 
@@ -603,100 +495,92 @@
     const params = new URLSearchParams(window.location.search);
     const soldierId = params.get("id");
 
-    // CHUYỂN TRANG
-    function showScreen(screenId) {
-      document.querySelectorAll(".screen").forEach(screen => {
-        screen.classList.remove("show");
-      });
 
-      const target = document.getElementById(screenId);
-
-      if (target) {
-        target.classList.add("show");
-      }
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    // TẠO THÔNG BÁO LỖI
-    function showError(element, message) {
-      element.innerHTML = "";
-      const error = document.createElement("div");
-      error.className = "error";
-      error.textContent = message;
-      element.appendChild(error);
-    }
-
+    // =========================
     // TẢI DỮ LIỆU
-    async function loadData() {
-      const info = document.getElementById("personalInfo");
+    // =========================
 
+    async function loadData() {
       try {
         const response = await fetch("./data.json?v=" + Date.now(), {
           cache: "no-store"
         });
 
         if (!response.ok) {
-          throw new Error("Không thể tải data.json");
+          throw new Error("Không thể tải dữ liệu.");
         }
 
         const data = await response.json();
-
-        if (!Array.isArray(data.soldiers)) {
-          throw new Error("Dữ liệu chiến sĩ không đúng định dạng.");
-        }
-
-        soldiers = data.soldiers;
+        soldiers = Array.isArray(data.soldiers) ? data.soldiers : [];
 
         currentSoldier = soldiers.find(
           soldier => soldier.id === soldierId
-        ) || null;
+        );
 
-        if (currentSoldier) {
-          renderPersonalInfo();
-        } else {
-          showError(
-            info,
-            "Không tìm thấy thông tin chiến sĩ. Bạn vui lòng kiểm tra lại đường link cá nhân nhé!"
-          );
+        if (!currentSoldier) {
+          showScreen("welcomeScreen");
+          return;
         }
 
-      } catch (error) {
-        console.error(error);
+        renderPersonalInfo();
 
-        showError(
-          info,
-          "Chưa thể tải thông tin chiến sĩ. Vui lòng kiểm tra file data.json và thử lại nhé!"
-        );
+      } catch (error) {
+        console.error("Lỗi tải dữ liệu:", error);
+        alert("Chưa thể tải thông tin chiến sĩ. Ngọc kiểm tra lại file data.json nhé!");
       }
     }
 
-    // NÚT MỞ THÔNG TIN
-    function openPersonalInfo() {
-      if (!soldiers.length) {
-        alert("Thông tin chiến sĩ đang được tải. Bạn vui lòng thử lại sau giây lát nhé!");
+
+    // =========================
+    // CHUYỂN TRANG
+    // =========================
+
+    function showScreen(screenId) {
+      document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("show");
+      });
+
+      document.getElementById(screenId).classList.add("show");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function openPersonalPage() {
+      if (!soldierId) {
+        alert("Đường link này chưa có mã chiến sĩ. Vui lòng sử dụng link cá nhân nhé!");
         return;
       }
 
       if (!currentSoldier) {
-        alert("Không tìm thấy mã chiến sĩ trong đường link cá nhân.");
+        alert("Không tìm thấy thông tin chiến sĩ. Vui lòng kiểm tra lại mã cá nhân.");
         return;
       }
 
       showScreen("infoScreen");
     }
 
+    function backToWelcome() {
+      showScreen("welcomeScreen");
+    }
+
+    function backToPersonalPage() {
+      showScreen("infoScreen");
+    }
+
+
+    // =========================
     // HIỂN THỊ THÔNG TIN CÁ NHÂN
+    // Không hiển thị nhóm gây quỹ ở đây
+    // =========================
+
     function renderPersonalInfo() {
       const info = document.getElementById("personalInfo");
-      info.innerHTML = "";
+      info.replaceChildren();
 
       const fields = [
         ["Mã chiến sĩ", currentSoldier.id],
         ["Họ và tên", currentSoldier.name],
         ["Chức vụ đội hình", currentSoldier.role],
-        ["Ban hoạt động", currentSoldier.department],
-        ["Nhóm gây quỹ", currentSoldier.fundraising]
+        ["Ban hoạt động", currentSoldier.department]
       ];
 
       fields.forEach(([label, value]) => {
@@ -717,65 +601,35 @@
       });
     }
 
-    // TẠO THẺ THÀNH VIÊN
-    function createMemberCard(soldier, index, position) {
-      const item = document.createElement("div");
-      item.className = "member-item";
 
-      const number = document.createElement("div");
-      number.className = "member-number";
-      number.textContent = String(index + 1).padStart(2, "0");
-
-      const content = document.createElement("div");
-      content.className = "member-content";
-
-      const name = document.createElement("div");
-      name.className = "member-name";
-      name.textContent = soldier.name || "Chưa cập nhật";
-
-      const detail = document.createElement("div");
-      detail.className = "member-detail";
-      detail.textContent = soldier.id || "";
-
-      const tag = document.createElement("span");
-      tag.className = "member-tag";
-      tag.textContent = position;
-
-      content.appendChild(name);
-      content.appendChild(detail);
-      content.appendChild(tag);
-
-      item.appendChild(number);
-      item.appendChild(content);
-
-      return item;
-    }
-
+    // =========================
     // DANH SÁCH NHÓM GÂY QUỸ
+    // =========================
+
     function showGroupScreen() {
       if (!currentSoldier) return;
 
+      const groupName = currentSoldier.fundraising;
+
+      document.getElementById("groupTitle").textContent =
+        groupName || "Nhóm gây quỹ";
+
+      const list = document.getElementById("groupList");
+      list.replaceChildren();
+
       const members = soldiers.filter(
-        soldier =>
-          soldier.fundraising &&
-          soldier.fundraising === currentSoldier.fundraising
+        soldier => soldier.fundraising === groupName
       );
 
-      const title = document.getElementById("groupTitle");
-      title.textContent = currentSoldier.fundraising || "Chưa phân nhóm";
-
-      const list = document.getElementById("groupMembers");
-      list.innerHTML = "";
-
       if (!members.length) {
-        showError(list, "Hiện chưa có thành viên trong nhóm này.");
+        showEmptyMessage(list);
       } else {
-        members.forEach((soldier, index) => {
+        members.forEach(soldier => {
           const position =
             soldier.fundraising_position || "Thành viên nhóm gây quỹ";
 
           list.appendChild(
-            createMemberCard(soldier, index, position)
+            createMemberCard(soldier, position)
           );
         });
       }
@@ -783,31 +637,35 @@
       showScreen("groupScreen");
     }
 
+
+    // =========================
     // DANH SÁCH BAN HOẠT ĐỘNG
+    // =========================
+
     function showDepartmentScreen() {
       if (!currentSoldier) return;
 
+      const departmentName = currentSoldier.department;
+
+      document.getElementById("departmentTitle").textContent =
+        departmentName || "Ban hoạt động";
+
+      const list = document.getElementById("departmentList");
+      list.replaceChildren();
+
       const members = soldiers.filter(
-        soldier =>
-          soldier.department &&
-          soldier.department === currentSoldier.department
+        soldier => soldier.department === departmentName
       );
 
-      const title = document.getElementById("departmentTitle");
-      title.textContent = currentSoldier.department || "Chưa phân ban";
-
-      const list = document.getElementById("departmentMembers");
-      list.innerHTML = "";
-
       if (!members.length) {
-        showError(list, "Hiện chưa có thành viên trong ban này.");
+        showEmptyMessage(list);
       } else {
-        members.forEach((soldier, index) => {
+        members.forEach(soldier => {
           const position =
             soldier.department_position || "Thành viên ban";
 
           list.appendChild(
-            createMemberCard(soldier, index, position)
+            createMemberCard(soldier, position)
           );
         });
       }
@@ -815,28 +673,70 @@
       showScreen("departmentScreen");
     }
 
-    // HIỆU ỨNG CÁNH HOA RƠI
+
+    // =========================
+    // TẠO THẺ THÀNH VIÊN
+    // =========================
+
+    function createMemberCard(soldier, position) {
+      const card = document.createElement("div");
+      card.className = "member-card";
+
+      const name = document.createElement("div");
+      name.className = "member-name";
+      name.textContent = soldier.name || "Chưa cập nhật";
+
+      const role = document.createElement("div");
+      role.className = "member-role";
+      role.textContent = position;
+
+      const code = document.createElement("div");
+      code.className = "member-code";
+      code.textContent = soldier.id || "";
+
+      card.appendChild(name);
+      card.appendChild(role);
+      card.appendChild(code);
+
+      return card;
+    }
+
+    function showEmptyMessage(container) {
+      const message = document.createElement("div");
+      message.className = "empty-message";
+      message.textContent = "Danh sách thành viên đang được cập nhật.";
+      container.appendChild(message);
+    }
+
+
+    // =========================
+    // HIỆU ỨNG CÁNH HOA
+    // =========================
+
     function createPetal() {
       const petal = document.createElement("div");
       petal.className = "petal";
-      petal.textContent = Math.random() > .5 ? "✿" : "❀";
+      petal.textContent = Math.random() > 0.5 ? "✿" : "❀";
 
       petal.style.left = Math.random() * 100 + "vw";
-      petal.style.fontSize = (12 + Math.random() * 12) + "px";
-      petal.style.animationDuration = (7 + Math.random() * 6) + "s";
+      petal.style.fontSize = (12 + Math.random() * 13) + "px";
+      petal.style.animationDuration = (6 + Math.random() * 6) + "s";
 
       document.body.appendChild(petal);
 
-      setTimeout(() => petal.remove(), 14000);
+      setTimeout(() => {
+        petal.remove();
+      }, 13000);
     }
 
+    setInterval(createPetal, 650);
+
+
+    // =========================
     // KHỞI CHẠY
-    loadData();
+    // =========================
 
-    // Chỉ tạo hoa khi người dùng không yêu cầu giảm chuyển động
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setInterval(createPetal, 650);
-    }
+    loadData();
   </script>
 
 </body>
