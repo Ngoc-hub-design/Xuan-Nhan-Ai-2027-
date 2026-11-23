@@ -45,6 +45,42 @@
       "fundraising": "Vượt KPI",
       "fundraising_position": "Thành viên nhóm gây quỹ",
       "department_position": "Trưởng ban"
+    },
+    {
+      "id": "XNA006",
+      "name": "Đặng Hữu Nguyên",
+      "role": "Chiến sĩ",
+      "department": "Dạy học",
+      "fundraising": "Nhóm 1",
+      "fundraising_position": "Trưởng nhóm gây quỹ",
+      "department_position": "Trưởng ban"
+    },
+    {
+      "id": "XNA007",
+      "name": "Trần Minh Hoàng",
+      "role": "Chiến sĩ",
+      "department": "Hậu cần",
+      "fundraising": "Nhóm 2",
+      "fundraising_position": "Thành viên nhóm gây quỹ",
+      "department_position": "Thành viên ban"
+    },
+    {
+      "id": "XNA008",
+      "name": "Phạm Nguỵ Hà Khoa",
+      "role": "Chiến sĩ",
+      "department": "Văn nghệ",
+      "fundraising": "Nhóm 1",
+      "fundraising_position": "Thành viên nhóm gây quỹ",
+      "department_position": "Trưởng ban"
+    },
+    {
+      "id": "XNA009",
+      "name": "Nguyễn Tiểu Bình",
+      "role": "Chiến sĩ",
+      "department": "Truyền thông",
+      "fundraising": "Nhóm 2",
+      "fundraising_position": "Trưởng nhóm nhóm gây quỹ",
+      "department_position": "Thành viên ban"
     }
   ]
 }
