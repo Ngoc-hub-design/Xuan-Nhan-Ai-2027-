@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="vi">
 <head>
@@ -400,11 +401,6 @@
         </div>
 
         <div class="field">
-          <div class="field-label">Chức vụ đội hình</div>
-          <div class="field-value" id="soldierRole"></div>
-        </div>
-
-        <div class="field">
           <div class="field-label">Ban hoạt động</div>
           <div class="field-value" id="soldierDepartment"></div>
         </div>
@@ -515,6 +511,14 @@
     }
 
 
+    // LẤY CHỨC VỤ TRONG BAN
+
+    function getDepartmentPosition(soldier) {
+      return soldier.department_position ||
+        "Thành viên ban";
+    }
+
+
     // CHUYỂN TRANG
 
     function showScreen(screen) {
@@ -604,9 +608,6 @@
 
       document.getElementById("soldierId").textContent =
         currentSoldier.id || "Chưa cập nhật";
-
-      document.getElementById("soldierRole").textContent =
-        currentSoldier.role || "Chưa cập nhật";
 
       document.getElementById("soldierDepartment").textContent =
         getDepartment(currentSoldier);
@@ -699,8 +700,7 @@
       }
 
       departmentMembers.forEach(person => {
-        const position = person.department_position ||
-          "Thành viên ban";
+        const position = getDepartmentPosition(person);
 
         container.appendChild(
           createMemberElement(person, position)
