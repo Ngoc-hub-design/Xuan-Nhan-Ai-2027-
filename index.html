@@ -14,349 +14,266 @@
     }
 
     body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      min-height: 100vh;
-      color: #71364f;
+      font-family: Arial, sans-serif;
       background: #fff5f8;
-    }
-
-    button, input {
-      font: inherit;
+      color: #573747;
+      min-height: 100vh;
     }
 
     button {
+      font: inherit;
       cursor: pointer;
-      border: none;
     }
 
     .screen {
       display: none;
       min-height: 100vh;
       padding: 28px 16px;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
     }
 
     .screen.active {
       display: flex;
-      justify-content: center;
       align-items: center;
-    }
-
-    #welcomeScreen {
-      background-image:
-        linear-gradient(rgba(255,239,246,.28), rgba(255,239,246,.5)),
-        url("assets/nen-chao-mung.png");
-    }
-
-    #infoScreen,
-    #groupScreen,
-    #departmentScreen {
-      background-image:
-        linear-gradient(rgba(255,242,247,.72), rgba(255,242,247,.82)),
-        url("assets/nen-thong-tin.png");
+      justify-content: center;
     }
 
     .container {
       width: 100%;
-      max-width: 620px;
+      max-width: 650px;
       margin: auto;
-      padding: 30px 24px;
-      border: 1px solid rgba(236,87,144,.2);
+      background: rgba(255,255,255,.94);
+      border: 1px solid #f7d6e3;
       border-radius: 25px;
-      background: rgba(255,255,255,.93);
-      box-shadow: 0 12px 40px rgba(157,75,108,.13);
-      backdrop-filter: blur(8px);
+      padding: 30px 24px;
+      box-shadow: 0 12px 35px rgba(183, 91, 129, .12);
     }
 
-    .welcome-content {
+    .welcome {
       text-align: center;
+      background:
+        linear-gradient(rgba(255,248,251,.86), rgba(255,248,251,.93)),
+        url("assets/nen-chao-mung.png") center/cover;
     }
 
-    .flower {
-      font-size: 42px;
-      margin-bottom: 12px;
+    .welcome .container {
+      max-width: 700px;
+      padding: 45px 28px;
     }
 
-    .eyebrow {
-      color: #d75c91;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 3px;
+    .small-title {
+      color: #d65b8d;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
       text-transform: uppercase;
-      margin-bottom: 12px;
     }
 
     h1 {
-      color: #c8467d;
-      font-size: clamp(27px,6vw,39px);
-      line-height: 1.25;
-      margin-bottom: 12px;
-    }
-
-    h2 {
-      color: #c8467d;
-      font-size: 24px;
-      margin-bottom: 8px;
-    }
-
-    .subtitle {
-      color: #916078;
-      line-height: 1.7;
-      font-size: 15px;
-      margin-bottom: 25px;
-    }
-
-    .input-group {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    input {
-      width: 100%;
-      padding: 14px 16px;
-      border: 1px solid #f0bfd2;
-      border-radius: 13px;
-      outline: none;
-      color: #71364f;
-      background: #fffafd;
-      text-align: center;
-      letter-spacing: 1px;
-    }
-
-    input:focus {
-      border-color: #e76b9c;
-      box-shadow: 0 0 0 3px rgba(231,107,156,.12);
-    }
-
-    .btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      padding: 13px 18px;
-      border-radius: 13px;
-      background: linear-gradient(135deg,#ee79a7,#d94d86);
-      color: white;
-      font-weight: 700;
-      transition: .2s;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(217,77,134,.2);
-    }
-
-    .btn.secondary {
-      background: #fff0f5;
-      color: #c8467d;
-      border: 1px solid #f3c3d5;
-    }
-
-    .btn-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .error {
-      color: #c03961;
-      font-size: 13px;
-      margin-top: 10px;
-      min-height: 18px;
-    }
-
-    .section-heading {
-      text-align: center;
+      color: #c7477c;
+      font-size: clamp(27px, 6vw, 42px);
+      line-height: 1.3;
       margin-bottom: 22px;
     }
 
-    .section-heading p {
-      color: #916078;
+    h2 {
+      color: #c7477c;
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .welcome-message {
+      font-size: 16px;
+      line-height: 1.9;
+      color: #765364;
+      margin: 0 auto 28px;
+      max-width: 540px;
+    }
+
+    .primary-btn {
+      border: none;
+      background: linear-gradient(135deg, #ee83aa, #d94d86);
+      color: white;
+      padding: 14px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: 0 6px 16px rgba(217,77,134,.2);
+      transition: .2s;
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 9px 20px rgba(217,77,134,.25);
+    }
+
+    .secondary-btn {
+      border: 1px solid #edb8ce;
+      background: #fff;
+      color: #c7477c;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .header p {
+      color: #987487;
       line-height: 1.6;
-      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .info-background {
+      background:
+        linear-gradient(rgba(255,246,250,.88), rgba(255,246,250,.94)),
+        url("assets/nen-thong-tin.png") center/cover fixed;
     }
 
     .info-card {
+      background: #fff7fa;
+      border: 1px solid #f5d9e4;
       padding: 20px;
       border-radius: 18px;
-      background: #fff6f9;
-      border: 1px solid #f4d4e0;
-      margin: 18px 0;
+      margin-bottom: 20px;
     }
 
-    .soldier-name {
-      font-size: 23px;
-      color: #bd3e75;
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 5px;
-    }
-
-    .soldier-id {
-      text-align: center;
-      color: #a77a8e;
-      font-size: 12px;
-      letter-spacing: 2px;
-      margin-bottom: 18px;
-    }
-
-    .info-line {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
+    .info-row {
       padding: 12px 0;
-      border-bottom: 1px dashed #edc9d8;
-      line-height: 1.5;
+      border-bottom: 1px dashed #edcada;
+      line-height: 1.6;
     }
 
-    .info-line:last-child {
+    .info-row:last-child {
       border-bottom: none;
     }
 
     .info-label {
-      color: #9a6b80;
-      flex-shrink: 0;
+      display: block;
+      color: #a47a8d;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
     }
 
     .info-value {
-      text-align: right;
-      color: #71364f;
-      font-weight: 700;
+      color: #61394e;
+      font-weight: bold;
+      overflow-wrap: anywhere;
     }
 
-    .list-wrapper {
-      margin: 18px 0;
+    .menu {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
     }
 
-    .list-title {
-      color: #bd3e75;
-      font-size: 17px;
-      font-weight: 800;
-      margin-bottom: 12px;
+    .menu button {
+      min-height: 95px;
+      border: 1px solid #f1c7d8;
+      border-radius: 17px;
+      background: #fff7fa;
+      color: #bd4b7c;
+      font-weight: bold;
+      padding: 15px 10px;
+      line-height: 1.5;
+    }
+
+    .menu button:hover {
+      background: #ffedf4;
     }
 
     .member-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
+      margin-top: 22px;
     }
 
-    .member-item {
-      padding: 14px;
-      border: 1px solid #f2d2df;
-      border-radius: 14px;
-      background: #fff9fb;
-    }
-
-    .member-top {
+    .member {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 10px;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 13px;
+      background: #fff8fb;
+      border: 1px solid #f4dce6;
+      border-radius: 15px;
+      padding: 15px;
+    }
+
+    .member-number {
+      width: 37px;
+      height: 37px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: #f9dce8;
+      color: #c7477c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
     }
 
     .member-name {
-      color: #813d5c;
-      font-weight: 800;
+      font-weight: bold;
+      color: #633b50;
       line-height: 1.5;
     }
 
-    .member-code {
-      color: #b58a9d;
-      font-size: 11px;
-      margin-top: 3px;
-      letter-spacing: 1px;
-    }
-
-    .member-role {
-      color: #997084;
-      font-size: 13px;
-      line-height: 1.5;
-      margin-top: 7px;
-    }
-
-    .member-tag {
+    .member-position {
       display: inline-block;
-      padding: 5px 9px;
-      border-radius: 30px;
+      color: #c04c7c;
+      background: #fce5ee;
+      border-radius: 20px;
+      padding: 5px 10px;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .member-id {
+      color: #a68a98;
       font-size: 11px;
-      font-weight: 800;
-      line-height: 1.4;
-      white-space: normal;
+      margin-top: 4px;
     }
 
-    .tag-leader {
-      color: #95600c;
-      background: #fff0c9;
-      border: 1px solid #f3d88c;
-    }
-
-    .tag-member {
-      color: #b34778;
-      background: #ffe8f0;
-      border: 1px solid #f4c4d7;
-    }
-
-    .empty-message {
-      padding: 18px;
-      color: #997084;
+    .back-row {
+      margin-top: 25px;
       text-align: center;
-      background: #fff7fa;
-      border-radius: 13px;
-      line-height: 1.6;
     }
 
-    .back-button {
-      margin-top: 18px;
+    .message {
+      text-align: center;
+      padding: 20px;
+      color: #987487;
+      line-height: 1.7;
     }
 
     .footer {
       text-align: center;
-      color: #b58a9d;
+      color: #bd91a5;
       font-size: 12px;
-      line-height: 1.7;
-      margin-top: 22px;
+      margin-top: 25px;
     }
 
-    .petal {
-      position: fixed;
-      top: -30px;
-      z-index: 10;
-      pointer-events: none;
-      color: #ed9dbb;
-      opacity: .75;
-      animation: fall linear forwards;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: .1;
-      }
-    }
-
-    @media (max-width:480px) {
+    @media (max-width: 480px) {
       .container {
-        padding: 25px 17px;
+        padding: 25px 18px;
       }
 
-      .btn-row {
+      .welcome .container {
+        padding: 38px 20px;
+      }
+
+      .menu {
         grid-template-columns: 1fr;
       }
 
-      .info-line {
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      .info-value {
-        text-align: left;
+      .member {
+        padding: 12px;
       }
     }
   </style>
@@ -365,120 +282,103 @@
 <body>
 
   <!-- TRANG CHÀO MỪNG -->
-  <section id="welcomeScreen" class="screen active">
-    <div class="container welcome-content">
-      <div class="flower">🌸</div>
-      <div class="eyebrow">Đội hình Xuân Nhân Ái 2027</div>
-      <h1>Chào mừng chiến sĩ!</h1>
+  <section id="welcomeScreen" class="screen active welcome">
+    <div class="container">
+      <div class="small-title">Chiến dịch Xuân Tình Nguyện 2027</div>
 
-      <p class="subtitle">
-        Một hành trình mới đang chờ chúng ta viết tiếp.
-        Cùng nhau mang yêu thương đến những vùng đất mới nhé!
+      <h1>Chào mừng Chiến sĩ<br>Đội hình Xuân Nhân Ái</h1>
+
+      <p class="welcome-message">
+        Lời đầu tiên, Ban Chỉ huy đội hình cảm ơn bạn vì đã chọn ở lại
+        và đồng hành cùng chúng mình trong mùa xuân lần này.
+        Cùng mở lời chào và khám phá những điều thú vị của bạn trong đội hình nhé!
       </p>
 
-      <div class="input-group">
-        <input
-          id="soldierCodeInput"
-          type="text"
-          placeholder="Nhập mã chiến sĩ của bạn"
-          autocomplete="off"
-        >
-
-        <button class="btn" onclick="searchSoldier()">
-          Xem thông tin chiến sĩ
-        </button>
-      </div>
-
-      <p id="welcomeError" class="error"></p>
+      <button class="primary-btn" onclick="openPersonalInfo()">
+        Điều hấp dẫn gì đang chờ đợi?
+      </button>
 
       <div class="footer">
-        ĐOÀN KẾT – SẺ CHIA – YÊU THƯƠNG<br>
-        Xuân Nhân Ái 2027
+        XUÂN NHÂN ÁI 2027 · CÙNG NHAU VIẾT NÊN MÙA XUÂN
       </div>
     </div>
   </section>
 
 
-  <!-- TRANG THÔNG TIN CÁ NHÂN -->
-  <section id="infoScreen" class="screen">
+  <!-- TRANG THÔNG TIN CHIẾN SĨ -->
+  <section id="infoScreen" class="screen info-background">
     <div class="container">
-
-      <div class="section-heading">
-        <div class="flower">🌷</div>
-        <div class="eyebrow">Xuân Nhân Ái 2027</div>
+      <div class="header">
+        <div class="small-title">Xuân Nhân Ái 2027</div>
         <h2>Thông tin chiến sĩ</h2>
         <p>Chào mừng bạn đến với hành trình Xuân Nhân Ái!</p>
       </div>
 
-      <div id="personalInfo" class="info-card"></div>
+      <div id="personalInfo" class="info-card">
+        <div class="message">Đang tải thông tin chiến sĩ...</div>
+      </div>
 
-      <div class="btn-row">
-        <button class="btn" onclick="showGroupScreen()">
+      <div class="menu">
+        <button onclick="showGroupScreen()">
+          <div>🌷</div>
           Nhóm gây quỹ
         </button>
 
-        <button class="btn" onclick="showDepartmentScreen()">
+        <button onclick="showDepartmentScreen()">
+          <div>🌼</div>
           Ban hoạt động
         </button>
       </div>
 
-      <button class="btn secondary back-button" onclick="goBack()">
-        ← Quay lại
-      </button>
-
-      <div class="footer">
-        Xuân Nhân Ái 2027 – Cùng nhau tạo nên những điều đẹp đẽ.
+      <div class="back-row">
+        <button class="secondary-btn" onclick="showScreen('welcomeScreen')">
+          Quay lại lời chào
+        </button>
       </div>
+
+      <div class="footer">XUÂN NHÂN ÁI 2027</div>
     </div>
   </section>
 
 
   <!-- TRANG DANH SÁCH NHÓM GÂY QUỸ -->
-  <section id="groupScreen" class="screen">
+  <section id="groupScreen" class="screen info-background">
     <div class="container">
-
-      <div class="section-heading">
-        <div class="flower">💗</div>
-        <div class="eyebrow">Xuân Nhân Ái 2027</div>
+      <div class="header">
+        <div class="small-title">Cùng nhau gây quỹ</div>
         <h2>Nhóm gây quỹ</h2>
-        <p id="groupSubtitle">
-          Các chiến sĩ đồng hành cùng bạn trong nhóm gây quỹ
-        </p>
+        <p>Những chiến sĩ cùng đồng hành trong nhóm gây quỹ của bạn</p>
       </div>
 
-      <div class="list-wrapper">
-        <div class="list-title" id="groupTitle"></div>
-        <div id="groupMembers" class="member-list"></div>
-      </div>
+      <div id="groupTitle" class="info-card"></div>
+      <div id="groupMembers" class="member-list"></div>
 
-      <button class="btn secondary back-button" onclick="showInfoScreen()">
-        ← Quay lại thông tin
-      </button>
+      <div class="back-row">
+        <button class="secondary-btn" onclick="showScreen('infoScreen')">
+          ← Quay lại thông tin
+        </button>
+      </div>
     </div>
   </section>
 
 
   <!-- TRANG DANH SÁCH BAN HOẠT ĐỘNG -->
-  <section id="departmentScreen" class="screen">
+  <section id="departmentScreen" class="screen info-background">
     <div class="container">
-
-      <div class="section-heading">
-        <div class="flower">🌼</div>
-        <div class="eyebrow">Xuân Nhân Ái 2027</div>
+      <div class="header">
+        <div class="small-title">Cùng nhau hoạt động</div>
         <h2>Ban hoạt động</h2>
-        <p id="departmentSubtitle">
-          Các chiến sĩ cùng hoạt động trong ban của bạn
-        </p>
+        <p>Những chiến sĩ cùng đồng hành trong ban hoạt động của bạn</p>
       </div>
 
-      <div class="list-wrapper">
-        <div class="list-title" id="departmentTitle"></div>
-        <div id="departmentMembers" class="member-list"></div>
-      </div>
+      <div id="departmentTitle" class="info-card"></div>
+      <div id="departmentMembers" class="member-list"></div>
 
-      <button class="btn secondary back-button" onclick="showInfoScreen()">
-        ← Quay lại thông tin
-      </button>
+      <div class="back-row">
+        <button class="secondary-btn" onclick="showScreen('infoScreen')">
+          ← Quay lại thông tin
+        </button>
+      </div>
     </div>
   </section>
 
@@ -487,343 +387,190 @@
     let soldiers = [];
     let currentSoldier = null;
 
-    // HIỂN THỊ CÁC TRANG
+    // Lấy mã chiến sĩ từ đường link cá nhân
+    const params = new URLSearchParams(window.location.search);
+    const soldierId = params.get("id");
+
+    // Chuyển trang
     function showScreen(screenId) {
       document.querySelectorAll(".screen").forEach(screen => {
         screen.classList.remove("active");
       });
 
       document.getElementById(screenId).classList.add("active");
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo(0, 0);
     }
 
-    function showInfoScreen() {
+    // Tải dữ liệu từ data.json
+    async function loadData() {
+      try {
+        const response = await fetch("./data.json?v=" + Date.now(), {
+          cache: "no-store"
+        });
+
+        if (!response.ok) {
+          throw new Error("Không thể tải dữ liệu.");
+        }
+
+        const data = await response.json();
+        soldiers = data.soldiers || [];
+
+        currentSoldier = soldiers.find(
+          soldier => soldier.id === soldierId
+        ) || null;
+
+        if (!currentSoldier) {
+          document.getElementById("personalInfo").innerHTML = `
+            <div class="message">
+              Không tìm thấy thông tin chiến sĩ.<br>
+              Vui lòng kiểm tra lại đường link cá nhân nhé!
+            </div>
+          `;
+        } else {
+          renderPersonalInfo();
+        }
+
+      } catch (error) {
+        document.getElementById("personalInfo").innerHTML = `
+          <div class="message">
+            Chưa thể tải dữ liệu chiến sĩ.<br>
+            Vui lòng thử tải lại trang sau nhé!
+          </div>
+        `;
+        console.error(error);
+      }
+    }
+
+    // Mở trang thông tin cá nhân
+    function openPersonalInfo() {
+      if (!currentSoldier) {
+        alert("Chưa tìm thấy thông tin chiến sĩ. Bạn vui lòng kiểm tra lại đường link nhé!");
+        return;
+      }
+
       showScreen("infoScreen");
     }
 
-    function goBack() {
-      currentSoldier = null;
+    // Hiển thị thông tin cá nhân
+    function renderPersonalInfo() {
+      const info = document.getElementById("personalInfo");
 
-      const url = new URL(window.location.href);
-      url.searchParams.delete("id");
-      window.history.replaceState({}, "", url);
+      info.innerHTML = "";
 
-      document.getElementById("soldierCodeInput").value = "";
-      document.getElementById("welcomeError").textContent = "";
+      const rows = [
+        ["Mã chiến sĩ", currentSoldier.id],
+        ["Họ và tên", currentSoldier.name],
+        ["Chức vụ đội hình", currentSoldier.role],
+        ["Ban hoạt động", currentSoldier.department],
+        ["Nhóm gây quỹ", currentSoldier.fundraising]
+      ];
 
-      showScreen("welcomeScreen");
+      rows.forEach(([label, value]) => {
+        const row = document.createElement("div");
+        row.className = "info-row";
+
+        const labelElement = document.createElement("span");
+        labelElement.className = "info-label";
+        labelElement.textContent = label;
+
+        const valueElement = document.createElement("div");
+        valueElement.className = "info-value";
+        valueElement.textContent = value || "Chưa cập nhật";
+
+        row.appendChild(labelElement);
+        row.appendChild(valueElement);
+        info.appendChild(row);
+      });
     }
 
+    // Tạo thẻ thành viên
+    function createMemberCard(soldier, index, position) {
+      const card = document.createElement("div");
+      card.className = "member";
 
-    // CHỨC VỤ NHÓM GÂY QUỸ
-    function getFundraisingPosition(soldier) {
-      return soldier.fundraising_position ||
-        "Thành viên nhóm gây quỹ";
-    }
+      const number = document.createElement("div");
+      number.className = "member-number";
+      number.textContent = index + 1;
 
-
-    // CHỨC VỤ BAN HOẠT ĐỘNG
-    function getDepartmentPosition(soldier) {
-      return soldier.department_position ||
-        "Thành viên ban";
-    }
-
-
-    // TẠO NHÃN CHỨC VỤ
-    function createTag(text, isLeader) {
-      const tag = document.createElement("span");
-
-      tag.className = isLeader
-        ? "member-tag tag-leader"
-        : "member-tag tag-member";
-
-      tag.textContent = text;
-
-      return tag;
-    }
-
-
-    // TẠO THẺ THÀNH VIÊN
-    function createMemberElement(soldier, tagText, isLeader) {
-      const item = document.createElement("div");
-      item.className = "member-item";
-
-      const top = document.createElement("div");
-      top.className = "member-top";
-
-      const identity = document.createElement("div");
+      const detail = document.createElement("div");
 
       const name = document.createElement("div");
       name.className = "member-name";
       name.textContent = soldier.name;
 
-      const code = document.createElement("div");
-      code.className = "member-code";
-      code.textContent = soldier.id;
+      const tag = document.createElement("span");
+      tag.className = "member-position";
+      tag.textContent = position;
 
-      identity.appendChild(name);
-      identity.appendChild(code);
+      const id = document.createElement("div");
+      id.className = "member-id";
+      id.textContent = soldier.id;
 
-      top.appendChild(identity);
-      top.appendChild(createTag(tagText, isLeader));
+      detail.appendChild(name);
+      detail.appendChild(tag);
+      detail.appendChild(id);
 
-      const role = document.createElement("div");
-      role.className = "member-role";
-      role.textContent = soldier.role || "Thành viên";
+      card.appendChild(number);
+      card.appendChild(detail);
 
-      item.appendChild(top);
-      item.appendChild(role);
-
-      return item;
+      return card;
     }
 
-
-    // THÔNG TIN CÁ NHÂN
-    function renderPersonalInfo(soldier) {
-      const container = document.getElementById("personalInfo");
-      container.innerHTML = "";
-
-      const name = document.createElement("div");
-      name.className = "soldier-name";
-      name.textContent = soldier.name;
-
-      const code = document.createElement("div");
-      code.className = "soldier-id";
-      code.textContent = soldier.id;
-
-      container.appendChild(name);
-      container.appendChild(code);
-
-      addInfoLine(container, "Chức vụ đội hình", soldier.role);
-      addInfoLine(container, "Ban hoạt động", soldier.department);
-      addInfoLine(container, "Nhóm gây quỹ", soldier.fundraising);
-    }
-
-    function addInfoLine(container, label, value) {
-      const line = document.createElement("div");
-      line.className = "info-line";
-
-      const labelElement = document.createElement("span");
-      labelElement.className = "info-label";
-      labelElement.textContent = label;
-
-      const valueElement = document.createElement("span");
-      valueElement.className = "info-value";
-      valueElement.textContent = value || "Chưa cập nhật";
-
-      line.appendChild(labelElement);
-      line.appendChild(valueElement);
-
-      container.appendChild(line);
-    }
-
-
-    // TRA CỨU CHIẾN SĨ
-    function searchSoldier() {
-      const input = document.getElementById("soldierCodeInput");
-      const code = input.value.trim().toUpperCase();
-
-      const soldier = soldiers.find(item =>
-        item.id.toUpperCase() === code
-      );
-
-      if (!soldier) {
-        document.getElementById("welcomeError").textContent =
-          "Không tìm thấy mã chiến sĩ. Bạn vui lòng kiểm tra lại nhé!";
-        return;
-      }
-
-      document.getElementById("welcomeError").textContent = "";
-      openSoldier(soldier);
-    }
-
-
-    // MỞ TRANG CÁ NHÂN
-    function openSoldier(soldier) {
-      currentSoldier = soldier;
-
-      renderPersonalInfo(soldier);
-
-      const url = new URL(window.location.href);
-      url.searchParams.set("id", soldier.id);
-
-      window.history.replaceState({}, "", url);
-
-      showScreen("infoScreen");
-    }
-
-
-    // DANH SÁCH NHÓM GÂY QUỸ
+    // Hiển thị thành viên cùng nhóm gây quỹ
     function showGroupScreen() {
       if (!currentSoldier) return;
 
-      const groupName = currentSoldier.fundraising;
-
-      const members = soldiers.filter(item =>
-        item.fundraising === groupName
+      const members = soldiers.filter(
+        soldier => soldier.fundraising === currentSoldier.fundraising
       );
 
-      document.getElementById("groupTitle").textContent =
-        "Nhóm " + groupName;
+      const title = document.getElementById("groupTitle");
+      title.textContent = "Nhóm: " + currentSoldier.fundraising;
 
       const list = document.getElementById("groupMembers");
       list.innerHTML = "";
 
-      if (members.length === 0) {
-        list.innerHTML =
-          '<div class="empty-message">Chưa có thành viên trong nhóm này.</div>';
-      } else {
-        members.forEach(member => {
-          const position = getFundraisingPosition(member);
+      members.forEach((soldier, index) => {
+        const position = soldier.fundraising_position ||
+          "Thành viên nhóm gây quỹ";
 
-          const isLeader = position === "Trưởng nhóm gây quỹ";
-
-          list.appendChild(
-            createMemberElement(
-              member,
-              position,
-              isLeader
-            )
-          );
-        });
-      }
+        list.appendChild(
+          createMemberCard(soldier, index, position)
+        );
+      });
 
       showScreen("groupScreen");
     }
 
-
-    // DANH SÁCH BAN HOẠT ĐỘNG
+    // Hiển thị thành viên cùng ban hoạt động
     function showDepartmentScreen() {
       if (!currentSoldier) return;
 
-      const departmentName = currentSoldier.department;
-
-      const members = soldiers.filter(item =>
-        item.department === departmentName
+      const members = soldiers.filter(
+        soldier => soldier.department === currentSoldier.department
       );
 
-      document.getElementById("departmentTitle").textContent =
-        "Ban " + departmentName;
+      const title = document.getElementById("departmentTitle");
+      title.textContent = "Ban: " + currentSoldier.department;
 
       const list = document.getElementById("departmentMembers");
       list.innerHTML = "";
 
-      if (members.length === 0) {
-        list.innerHTML =
-          '<div class="empty-message">Chưa có thành viên trong ban này.</div>';
-      } else {
-        members.forEach(member => {
-          const position = getDepartmentPosition(member);
+      members.forEach((soldier, index) => {
+        const position = soldier.department_position ||
+          "Thành viên ban";
 
-          // Đội trưởng được giữ đúng nhãn Đội trưởng.
-          // Trưởng ban và thành viên ban có nhãn riêng.
-          const isLeader =
-            position === "Trưởng ban" ||
-            position === "Đội trưởng";
-
-          list.appendChild(
-            createMemberElement(
-              member,
-              position,
-              isLeader
-            )
-          );
-        });
-      }
+        list.appendChild(
+          createMemberCard(soldier, index, position)
+        );
+      });
 
       showScreen("departmentScreen");
     }
 
-
-    // TỰ ĐỘNG MỞ TRANG TỪ LINK CÁ NHÂN
-    function loadPersonalLink() {
-      const params = new URLSearchParams(window.location.search);
-      const id = params.get("id");
-
-      if (!id) return;
-
-      const soldier = soldiers.find(item =>
-        item.id.toUpperCase() === id.trim().toUpperCase()
-      );
-
-      if (soldier) {
-        openSoldier(soldier);
-      } else {
-        showScreen("welcomeScreen");
-
-        document.getElementById("welcomeError").textContent =
-          "Mã chiến sĩ trong đường dẫn không tồn tại.";
-      }
-    }
-
-
-    // TẢI DỮ LIỆU JSON
-    async function initWebsite() {
-      try {
-        const response = await fetch(
-          "./data.json?v=" + Date.now(),
-          { cache: "no-store" }
-        );
-
-        if (!response.ok) {
-          throw new Error("Không thể tải data.json");
-        }
-
-        const data = await response.json();
-
-        if (!data || !Array.isArray(data.soldiers)) {
-          throw new Error("Cấu trúc dữ liệu không hợp lệ");
-        }
-
-        soldiers = data.soldiers;
-
-        loadPersonalLink();
-
-      } catch (error) {
-        console.error("Lỗi tải dữ liệu:", error);
-
-        document.getElementById("welcomeError").textContent =
-          "Chưa tải được dữ liệu chiến sĩ. Vui lòng tải lại trang hoặc kiểm tra data.json.";
-      }
-    }
-
-
-    // NHẤN ENTER ĐỂ TRA CỨU
-    document.getElementById("soldierCodeInput")
-      .addEventListener("keydown", event => {
-        if (event.key === "Enter") {
-          searchSoldier();
-        }
-      });
-
-
-    // HIỆU ỨNG HOA RƠI
-    function createPetal() {
-      const petal = document.createElement("div");
-
-      petal.className = "petal";
-      petal.textContent = Math.random() > 0.5 ? "🌸" : "✿";
-
-      petal.style.left = Math.random() * 100 + "vw";
-      petal.style.fontSize =
-        (12 + Math.random() * 12) + "px";
-
-      const duration = 7 + Math.random() * 8;
-      petal.style.animationDuration = duration + "s";
-
-      document.body.appendChild(petal);
-
-      setTimeout(() => {
-        petal.remove();
-      }, duration * 1000);
-    }
-
-    setInterval(createPetal, 700);
-
-
-    // KHỞI CHẠY WEBSITE
-    initWebsite();
-
+    // Khởi chạy
+    loadData();
   </script>
+
 </body>
 </html>
