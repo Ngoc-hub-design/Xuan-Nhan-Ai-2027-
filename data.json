@@ -45,42 +45,6 @@
       "fundraising": "Vượt KPI",
       "fundraising_position": "Thành viên nhóm gây quỹ",
       "department_position": "Trưởng ban"
-    },
-    {
-      "id": "XNA006",
-      "name": "Nguyễn Văn",
-      "role": "Chiến sĩ",
-      "department": "Dạy học",
-      "fundraising": "Nhóm 1",
-      "fundraising_position": "Trưởng nhóm gây quỹ",
-      "department_position": "Trưởng ban"
-    },
-    {
-      "id": "XNA007",
-      "name": "Phạm Văn",
-      "role": "Chiến sĩ",
-      "department": "Hậu cần",
-      "fundraising": "Nhóm 2",
-      "fundraising_position": "Thành viên nhóm gây quỹ",
-      "department_position": "Thành viên ban"
-    },
-    {
-      "id": "XNA008",
-      "name": "Nguyễn Thị",
-      "role": "Chiến sĩ",
-      "department": "Văn nghệ",
-      "fundraising": "Nhóm 1",
-      "fundraising_position": "Thành viên nhóm gây quỹ",
-      "department_position": "Trưởng ban"
-    },
-    {
-      "id": "XNA009",
-      "name": "Ông Nhựt"
-      "role": "Chiến sĩ",
-      "department": "Truyền thông",
-      "fundraising": "Nhóm 2",
-      "fundraising_position": "Trưởng nhóm nhóm gây quỹ",
-      "department_position": "Thành viên ban"
-    }
+   }
   ]
 }
