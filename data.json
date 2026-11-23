@@ -1,22 +1,38 @@
-{
-  "soldiers": [
-    {
-      "id": "XNA001",
-      "name": "Phạm Thị Lam Giang",
-      "role": "Đội trưởng",
-      "group": "Nhóm 6"
-    },
-    {
-      "id": "XNA002",
-      "name": "Nguyễn Hoài Bảo Ngọc",
-      "role": "Đội phó Nhân sự",
-      "group": "Nhóm 6"
-    },
-    {
-      "id": "XNA003",
-      "name": "Ông Nguyễn Nhựt Huy",
-      "role": "Đội phó Hậu cần",
-      "group": "Nhóm 6"
-    }
-  ]
-}
+
+[
+  {
+    "id": "XNA001",
+    "name": "Phạm Thị Lam Giang",
+    "role": "Đội trưởng",
+    "department": "",
+    "fundraising": "Nhóm vượt KPI"
+  },
+  {
+    "id": "XNA002",
+    "name": "Võ Đình Diệu Hằng",
+    "role": "Đội phó Chương trình",
+    "department": "Dạy học",
+    "fundraising": "Nhóm vượt KPI"
+  },
+  {
+    "id": "XNA003",
+    "name": "Ông Nguyễn Nhựt Huy",
+    "role": "Đội phó Hậu cần - Tài chính",
+    "department": "Hậu cần",
+    "fundraising": "Nhóm vượt KPI"
+  },
+  {
+    "id": "XNA004",
+    "name": "Nguyễn Hoài Bảo Ngọc",
+    "role": "Đội phó Nhân sự",
+    "department": "Văn nghệ",
+    "fundraising": "Nhóm vượt KPI"
+  },
+  {
+    "id": "XNA005",
+    "name": "Đặng Nhã Quyên",
+    "role": "TV BCH Truyền thông",
+    "department": "Truyền thông",
+    "fundraising": "Nhóm vượt KPI"
+  }
+]
