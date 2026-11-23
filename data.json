@@ -48,7 +48,7 @@
     },
     {
       "id": "XNA006",
-      "name": "Nguyễn Văn A",
+      "name": "Nguyễn Văn",
       "role": "Chiến sĩ",
       "department": "Dạy học",
       "fundraising": "Nhóm 1",
@@ -57,7 +57,7 @@
     },
     {
       "id": "XNA007",
-      "name": "Nguyễn Văn B",
+      "name": "Phạm Văn",
       "role": "Chiến sĩ",
       "department": "Hậu cần",
       "fundraising": "Nhóm 2",
@@ -66,7 +66,7 @@
     },
     {
       "id": "XNA008",
-      "name": "Nguyễn Thị C",
+      "name": "Nguyễn Thị",
       "role": "Chiến sĩ",
       "department": "Văn nghệ",
       "fundraising": "Nhóm 1",
@@ -75,7 +75,7 @@
     },
     {
       "id": "XNA009",
-      "name": "Ông Nhựt D"
+      "name": "Ông Nhựt"
       "role": "Chiến sĩ",
       "department": "Truyền thông",
       "fundraising": "Nhóm 2",
